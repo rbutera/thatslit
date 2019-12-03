@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import Subtitle from '../src/components/subtitle/subtitle';
+import Subtitle from './subtitle';
 
 export default {
   title: 'Subtitle',
@@ -32,4 +32,6 @@ const options = {
   ],
 };
 
-export const text = () => <Subtitle options={options}>asfasfsfasffsa</Subtitle>;
+export const subtitle = () => (
+  <Subtitle options={options}>This is the subtitle</Subtitle>
+);

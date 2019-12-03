@@ -12,7 +12,7 @@
     "build": "npm run build:dir && npm run build:favicons && gatsby build",
     "test": "ava **/*.test.js --verbose",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "NODE_ENV=production build-storybook"
   },
   "greenkeeper": {
     "ignore": [
@@ -21,13 +21,16 @@
     ]
   },
   "dependencies": {
+    "@babel/plugin-syntax-object-rest-spread": "^7.7.4",
     "@reach/dialog": "^0.2.0",
     "@reach/router": "^1.2.1",
     "@reach/visually-hidden": "^0.1.1",
+    "babel-plugin-macros": "^2.7.1",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.3.26",
     "gatsby-image": "^2.0.39",
     "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-postcss": "^2.1.16",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-react-svg": "^2.0.0",
     "gatsby-plugin-sharp": "^2.0.35",
@@ -46,6 +49,7 @@
     "react-helmet": "^5.2.0",
     "react-pose": "^4.0.5",
     "styled-components": "^4.4.1",
+    "tailwind.macro": "^1.0.0-alpha.10",
     "tailwindcss": "^1.1.4"
   },
   "devDependencies": {
@@ -57,6 +61,7 @@
     "ava": "^0.25.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
+    "babel-plugin-tailwind-components": "^0.5.10",
     "chrome-launcher": "^0.10.5",
     "core-js": "^2.6.2",
     "directory-named-webpack-plugin": "^4.0.0",

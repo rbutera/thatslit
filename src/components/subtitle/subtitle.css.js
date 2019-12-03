@@ -1,5 +1,6 @@
 import styled from 'styled-components';
+import tw from 'tailwind.macro';
 
 export const Text = styled.div`
-  background: blue;
+  ${tw`font-mono text-sm text-red hover:text-blue`};
 `;
