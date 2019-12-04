@@ -21,13 +21,17 @@ function shuffle(input = []) {
 const MorphingPhrase = ({ children }) => {
   const transitions = useTransition(children, null, {
     from: {
+      display: 'inline-block',
       opacity: 0,
+      transform: 'translate3d(300px,0,0)',
     },
     enter: {
       opacity: 1,
+      transform: 'translate3d(0px,0px,0)',
     },
     leave: {
       opacity: 0,
+      transform: 'translate3d(300px,0,0)',
     },
   });
   return transitions.map(
