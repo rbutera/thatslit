@@ -23,7 +23,7 @@ const MorphingPhrase = ({ children }) => {
     from: {
       display: 'inline-block',
       opacity: 0,
-      transform: 'translate3d(300px,0,0)',
+      transform: 'translate3d(0px,-100%,0)',
     },
     enter: {
       opacity: 1,
@@ -31,7 +31,7 @@ const MorphingPhrase = ({ children }) => {
     },
     leave: {
       opacity: 0,
-      transform: 'translate3d(300px,0,0)',
+      transform: 'translate3d(0px,100%,0)',
     },
   });
   return transitions.map(
@@ -46,7 +46,7 @@ const MorphingPhrase = ({ children }) => {
   );
 };
 
-const Segment = ({ before, children, options }) => {
+const Segment = ({ before, after, children, options }) => {
   return (
     <Line>
       {before}
@@ -62,8 +62,6 @@ const Subtitle = ({ as = 'span', size = 'medium', options }) => {
 
   useEffect(() => {
     const i = setInterval(() => {
-      const firstOptionsBackup = firstOptions;
-
       setFirstOptions([]);
       setTimeout(() => {
         setFirstOptions(shuffle(firstOptions));
