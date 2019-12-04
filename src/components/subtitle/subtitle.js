@@ -18,7 +18,7 @@ function shuffle(input = []) {
   return [next, current, ...remaining];
 }
 
-const MorphingPhrase = ({ children }) => {
+const AnimatedSegment = ({ children }) => {
   const transitions = useTransition(children, null, {
     from: {
       display: 'inline-block',
@@ -46,11 +46,11 @@ const MorphingPhrase = ({ children }) => {
   );
 };
 
-const Segment = ({ before, after, children, options }) => {
+const Segment = ({ before, children }) => {
   return (
     <Line>
       {before}
-      <MorphingPhrase>{children}</MorphingPhrase>
+      <AnimatedSegment>{children}</AnimatedSegment>
     </Line>
   );
 };
