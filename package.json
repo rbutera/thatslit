@@ -48,6 +48,8 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-pose": "^4.0.5",
+    "rxjs": "^6.5.3",
+    "rxjs-hooks": "^0.5.2",
     "styled-components": "^4.4.1",
     "tailwind.macro": "^1.0.0-alpha.10",
     "tailwindcss": "^1.1.4"
