@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Text, Line } from './subtitle.css';
+import { Text, Line, LineHeight } from './subtitle.css';
 import { useObservable } from 'rxjs-hooks';
 import { interval } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { useTransition, animated } from 'react-spring';
 
 function shuffle(input = []) {
   if (!input || input.length < 2) {
@@ -18,7 +19,27 @@ function shuffle(input = []) {
 }
 
 const MorphingPhrase = ({ children }) => {
-  return <>{children}</>;
+  const transitions = useTransition(children, null, {
+    from: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+    },
+    leave: {
+      opacity: 0,
+    },
+  });
+  return transitions.map(
+    ({ item, key, props: { innerWidth, ...rest } }) =>
+      item && (
+        <animated.span className="transitions-item" key={key} style={rest}>
+          <animated.span style={{ overflow: 'hidden', width: innerWidth }}>
+            {item}
+          </animated.span>
+        </animated.span>
+      )
+  );
 };
 
 const Segment = ({ before, children, options }) => {
@@ -37,9 +58,15 @@ const Subtitle = ({ as = 'span', size = 'medium', options }) => {
 
   useEffect(() => {
     const i = setInterval(() => {
-      setFirstOptions(shuffle(firstOptions));
+      const firstOptionsBackup = firstOptions;
+
+      setFirstOptions([]);
       setTimeout(() => {
-        setSecondOptions(shuffle(secondOptions));
+        setFirstOptions(shuffle(firstOptions));
+        setSecondOptions([]);
+        setTimeout(() => {
+          setSecondOptions(shuffle(secondOptions));
+        }, 1000);
       }, 1000);
     }, 5000);
 
