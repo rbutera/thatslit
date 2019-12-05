@@ -11,11 +11,10 @@ function shuffle(input = []) {
     return input;
   }
 
-  const [current, ...rest] = input;
-  const randomIndex = Math.floor(Math.random() * rest.length);
-  const next = rest[randomIndex];
-  const remaining = rest.filter(x => x !== next);
-  return [next, current, ...remaining];
+  const randomIndex = Math.floor(Math.random() * input.length);
+  const next = input[randomIndex];
+  const remaining = input.filter(x => x !== next);
+  return [next, ...remaining];
 }
 
 const AnimatedSegment = ({ children }) => {
