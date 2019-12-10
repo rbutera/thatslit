@@ -17,11 +17,12 @@ const Category = styled.span`
 `;
 
 const Caption = styled.div`
-  ${tw`inline-block relative m-1 p-3 text-white w-auto overflow-hidden rounded-sm`};
+  ${tw`inline-block relative m-1 p-3 text-white w-auto overflow-hidden rounded`};
   max-width: 50%;
   max-height: 66%;
-  background: hsla(0, 0%, 10%, 0.2);
-  backdrop-filter: blur(100px) brightness(0.4);
+  background: hsla(0, 0%, 0%, 0.5);
+
+  backdrop-filter: blur(32px) brightness(0.2);
 `;
 
 const Name = styled.h1`
@@ -29,7 +30,7 @@ const Name = styled.h1`
 `;
 
 const Tagline = styled.p`
-  ${tw`m-0 p-0 text-lg`};
+  ${tw`mt-1 mb-0 mx-0 p-0 text-lg`};
 `;
 
 const Image = styled.div`

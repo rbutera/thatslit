@@ -22,7 +22,7 @@ const FeedStyle = styled.ul`
 `;
 
 const Item = styled.li`
-  ${tw`my-1 p-0 block`};
+  ${tw`my-1 p-0 block overflow-hidden`};
   height: 240px;
 `;
 
