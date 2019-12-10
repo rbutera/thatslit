@@ -4,6 +4,7 @@ import './fonts.css';
 
 export default createGlobalStyle`
   body {
+    background-color: hsl(0,0,20%);
     font-family: 'aktiv-grotesk-condensed', -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;

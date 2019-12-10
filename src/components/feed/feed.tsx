@@ -18,14 +18,12 @@ function normalizeFields(fields) {
 }
 
 const FeedStyle = styled.ul`
-  ${tw`m-0 p-0`};
-  display: flex;
-  flex-direction: column;
+  ${tw`m-0 p-0 flex flex-col`};
 `;
 
 const Item = styled.li`
   ${tw`my-1 p-0 block`};
-  height: 180px;
+  height: 240px;
 `;
 
 const Feed = ({ items = [] }) => {

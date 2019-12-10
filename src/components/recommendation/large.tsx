@@ -4,42 +4,28 @@ import tw from 'tailwind.macro';
 import { RecommendationProps } from './recommendation';
 
 const Box = styled.article`
-  ${tw`w-full h-full bg-cover m-0 p-0 overflow-hidden`}
-  
+  ${tw`relative w-full h-full bg-cover m-0 overflow-hidden bg-center`}
+  min-height: 240px;
   background-image: url(${props => props.background});
 `;
-
+const Content = styled.div`
+  ${tw`flex flex-col items-end justify-end w-full h-full absolute top-0 left-0`}
+  backdrop-filter: saturation(2) contrast(0.9) brightness(0.8);
+`;
 const Category = styled.span`
   ${tw`uppercase tracking-widest text-sm`}
 `;
 
-const Caption = styled.figcaption`
-  ${tw`p-4 h-full m-0 text-white`};
-
-  background: linear-gradient(
-    162deg,
-    hsl(0, 0%, 0%) 0%,
-    hsla(0, 0%, 0%, 0.988) 7.4%,
-    hsla(0, 0%, 0%, 0.954) 13.1%,
-    hsla(0, 0%, 0%, 0.902) 17.5%,
-    hsla(0, 0%, 0%, 0.835) 20.9%,
-    hsla(0, 0%, 0%, 0.755) 23.7%,
-    hsla(0, 0%, 0%, 0.668) 26.3%,
-    hsla(0, 0%, 0%, 0.575) 29%,
-    hsla(0, 0%, 0%, 0.48) 32.2%,
-    hsla(0, 0%, 0%, 0.386) 36.3%,
-    hsla(0, 0%, 0%, 0.297) 41.6%,
-    hsla(0, 0%, 0%, 0.217) 48.6%,
-    hsla(0, 0%, 0%, 0.147) 57.5%,
-    hsla(0, 0%, 0%, 0.092) 68.8%,
-    hsla(0, 0%, 0%, 0.056) 82.9%,
-    hsla(0, 0%, 0%, 0.04) 100%
-  );
-  backdrop-filter: contrast(1.1) brightness(0.9);
+const Caption = styled.div`
+  ${tw`inline-block relative m-1 p-3 text-white w-auto overflow-hidden rounded-sm`};
+  max-width: 50%;
+  max-height: 66%;
+  background: hsla(0, 0%, 10%, 0.2);
+  backdrop-filter: blur(100px) brightness(0.4);
 `;
 
 const Name = styled.h1`
-  ${tw`font-bold tracking-wide uppercase text-3xl m-0 p-0 leading-none`};
+  ${tw`font-bold tracking-wide uppercase text-2xl m-0 p-0 leading-none`};
 `;
 
 const Tagline = styled.p`
@@ -54,11 +40,13 @@ const Image = styled.div`
 export function LargeRecommendation(props: RecommendationProps) {
   return (
     <Box background={props.picture}>
-      <Caption>
-        <Category>{props.category}</Category>
-        <Name>{props.name}</Name>
-        <Tagline>{props.tagline}</Tagline>
-      </Caption>
+      <Content>
+        <Caption>
+          <Category>{props.category}</Category>
+          <Name>{props.name}</Name>
+          <Tagline>{props.tagline}</Tagline>
+        </Caption>
+      </Content>
     </Box>
   );
 }
