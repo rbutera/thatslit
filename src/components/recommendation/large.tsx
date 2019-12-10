@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
+import { RecommendationProps } from './recommendation';
 
 const Box = styled.article`
   ${tw`w-full h-full bg-cover m-0 p-0 overflow-hidden`}
@@ -50,14 +51,13 @@ const Image = styled.div`
   background-image: url(${props => props.src});
 `;
 
-export function LargeRecommendation({ data, ...rest }) {
-  const { name, tagline, category, url, picture } = data;
+export function LargeRecommendation(props: RecommendationProps) {
   return (
-    <Box background={picture}>
+    <Box background={props.picture}>
       <Caption>
-        <Category>{category}</Category>
-        <Name>{name}</Name>
-        <Tagline>{tagline}</Tagline>
+        <Category>{props.category}</Category>
+        <Name>{props.name}</Name>
+        <Tagline>{props.tagline}</Tagline>
       </Caption>
     </Box>
   );

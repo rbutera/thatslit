@@ -22,9 +22,9 @@ const data = {
   url: 'https://google.com',
 };
 
-export const small = () => <Recommendation data={data} size="small" />;
+export const small = () => <Recommendation {...data} size="small" />;
 export const large = () => (
   <LargeWrapper>
-    <Recommendation data={data} size="large" />
+    <Recommendation {...data} size="large" />
   </LargeWrapper>
 );

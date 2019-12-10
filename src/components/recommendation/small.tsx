@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
+import { RecommendationProps } from './recommendation';
 
 const Box = styled.article`
   ${tw`flex`}
@@ -23,14 +24,13 @@ const Image = styled.div`
   background-image: url(${props => props.src});
 `;
 
-export function SmallRecommendation({ data, ...rest }) {
-  const { name, tagline, category, url, picture } = data;
+export function SmallRecommendation(props: RecommendationProps) {
   return (
     <Box>
-      <Image src={picture} />
+      <Image src={props.picture} />
       <Caption>
-        <Name>{name}</Name>
-        <Tagline>{tagline}</Tagline>
+        <Name>{props.name}</Name>
+        <Tagline>{props.tagline}</Tagline>
       </Caption>
     </Box>
   );
