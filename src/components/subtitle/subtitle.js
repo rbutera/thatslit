@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Text, Line, LineHeight } from './subtitle.css';
 import { useObservable } from 'rxjs-hooks';
@@ -11,10 +11,12 @@ function shuffle(input = []) {
     return input;
   }
 
-  const randomIndex = Math.floor(Math.random() * input.length);
-  const next = input[randomIndex];
-  const remaining = input.filter(x => x !== next);
-  return [next, ...remaining];
+  const [head, ...tail] = input;
+  const randomIndex = Math.floor(tail.length * Math.random());
+  const next = tail[randomIndex];
+  const remaining = tail.filter(x => x !== next);
+  const result = [next, ...remaining, head];
+  return result;
 }
 
 const AnimatedSegment = ({ children }) => {
@@ -56,17 +58,21 @@ const Segment = ({ before, children }) => {
 
 const Subtitle = ({ as = 'span', size = 'medium', options }) => {
   const { first, second } = options;
+  const optionsRef = useRef(options);
   const [firstOptions, setFirstOptions] = useState(first);
   const [secondOptions, setSecondOptions] = useState(second);
 
   useEffect(() => {
     const i = setInterval(() => {
       setFirstOptions([]);
+
       setTimeout(() => {
-        setFirstOptions(shuffle(firstOptions));
+        optionsRef.current.first = shuffle(optionsRef.current.first);
+        setFirstOptions(optionsRef.current.first);
         setSecondOptions([]);
         setTimeout(() => {
-          setSecondOptions(shuffle(secondOptions));
+          optionsRef.current.second = shuffle(optionsRef.current.second);
+          setSecondOptions(optionsRef.current.second);
         }, 1000);
       }, 1000);
     }, 5000);
