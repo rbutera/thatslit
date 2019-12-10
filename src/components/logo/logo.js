@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import tw from 'tailwind.macro';
 
 const Text = styled.div`
-  ${tw`leading-tight text-4xl`};
+  ${tw`leading-tight`};
+  font-weight: 700;
+  font-size: 6rem;
 `;
 
 const Logo = () => {
