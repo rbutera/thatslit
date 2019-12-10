@@ -12,7 +12,8 @@
     "build": "npm run build:dir && npm run build:favicons && gatsby build",
     "test": "ava **/*.test.js --verbose",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "NODE_ENV=production build-storybook"
+    "build-storybook": "NODE_ENV=production build-storybook",
+    "check-types": "tsc"
   },
   "greenkeeper": {
     "ignore": [
@@ -37,6 +38,7 @@
     "gatsby-plugin-sitemap": "^2.0.12",
     "gatsby-plugin-styled-components": "^3.1.14",
     "gatsby-plugin-tailwindcss": "^1.0.3",
+    "gatsby-plugin-typescript": "^2.1.22",
     "gatsby-plugin-webpack-size": "^0.0.3",
     "gatsby-source-filesystem": "^2.0.30",
     "gatsby-transformer-json": "^2.1.11",
@@ -57,11 +59,15 @@
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
     "@storybook/addon-actions": "^5.2.8",
     "@storybook/addon-links": "^5.2.8",
     "@storybook/addons": "^5.2.8",
     "@storybook/react": "^5.2.8",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
     "ava": "^0.25.0",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-tailwind-components": "^0.5.10",
@@ -78,12 +84,16 @@
     "favicons": "^5.3.0",
     "gatsby-plugin-eslint": "^2.0.3",
     "lighthouse": "^4.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "mkdirp": "^0.5.1",
     "node-gyp": "^3.8.0",
     "postcss": "^7.0.23",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^1.16.0"
+    "prettier": "^1.16.0",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
+    "typescript": "^3.7.3"
   }
 }

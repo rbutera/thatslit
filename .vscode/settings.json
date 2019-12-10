@@ -1,0 +1,16 @@
+{
+  "typescript.format.semicolons": "remove",
+  "javascript.format.semicolons": "remove",
+  "projects.refreshIgnoreFolders": [
+    "bower_components",
+    "node_modules",
+    "typings",
+    "dist"
+  ],
+  "search.exclude": {
+    "dist": true
+  },
+  "files.exclude": {
+    "dist": true
+  }
+}
