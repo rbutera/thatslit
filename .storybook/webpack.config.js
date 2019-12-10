@@ -28,6 +28,7 @@ module.exports = ({ config }) => {
   config.module.rules[0].use[0].options.presets = [
     require.resolve('@babel/preset-react'),
     require.resolve('@babel/preset-env'),
+    require.resolve('@babel/preset-typescript'),
   ];
 
   config.module.rules[0].use[0].options.plugins = [
@@ -42,5 +43,7 @@ module.exports = ({ config }) => {
   // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint
   config.resolve.mainFields = ['browser', 'module', 'main'];
 
+  // add typescript support
+  config.resolve.extensions.push('.ts', '.tsx');
   return config;
 };
