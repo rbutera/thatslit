@@ -14665,10 +14665,20 @@ queue@6.0.1:
   dependencies:
     inherits "~2.0.3"
 
+rambda@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/rambda/-/rambda-4.4.0.tgz#c300335e2c0a560f0d6334c200728cd753c5cce4"
+  integrity sha512-NbQBX5LOfSIHnLQww+QPiHqllTTnKqPLs0pqwBcVctkPh+o0AHCJ985rwGVS9OgaT+GGKI1lOIX3aTQnqXjoPA==
+
 ramda@0.21.0, ramda@^0.21.0:
   version "0.21.0"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.21.0.tgz#a001abedb3ff61077d4ff1d577d44de77e8d0a35"
   integrity sha1-oAGr7bP/YQd9T/HVd9RN536NCjU=
+
+ramda@^0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
+  integrity sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
 
 randomatic@^3.0.0:
   version "3.1.1"

@@ -20,7 +20,7 @@ const Tagline = styled.p`
 `
 
 const Image = styled.div`
-  ${tw`block w-24 h-24 m-0 p-0 bg-cover rounded-sm`}
+  ${tw`block w-24 h-24 m-0 p-0 bg-cover bg-center overflow-hidden rounded`}
   background-image: url(${props => props.src});
 `
 
