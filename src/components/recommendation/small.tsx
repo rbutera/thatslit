@@ -4,15 +4,15 @@ import tw from 'tailwind.macro'
 import { RecommendationProps } from './recommendation'
 
 const Box = styled.article`
-  ${tw`flex items-center`}
+  ${tw`flex items-center p-2`}
 `
 
 const Caption = styled.figcaption`
-  ${tw`flex flex-col content-start p-4`};
+  ${tw`flex flex-col content-start mx-2 p-4`};
 `
 
 const Name = styled.h2`
-  ${tw`font-bold uppercase text-xl m-0 p-0 tracking-widest font-condensed`};
+  ${tw`font-bold font-sans text-2xl m-0 p-0 tracking-wide font-condensed`};
 `
 
 const Tagline = styled.p`

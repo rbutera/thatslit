@@ -23,7 +23,8 @@ const FeedStyle = styled.ul`
 `
 
 const Item = styled.li`
-  ${tw`my-1 p-0 block overflow-hidden`};
+  ${tw`my-1 block overflow-hidden`};
+  ${(props: any) => (props.size === 'large' ? tw`p-0` : tw`p-2`)}
   height: ${(props: any) => (props.size === 'large' ? '240px' : 'auto')};
 `
 

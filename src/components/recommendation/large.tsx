@@ -20,18 +20,18 @@ const Category = styled.span`
 
 const Caption = styled.div`
   ${tw`inline-block relative m-2 p-4 text-white w-auto overflow-hidden rounded-lg`};
-  max-width: 50%;
+  max-width: 200px;
   max-height: 66%;
   background: hsla(0, 0%, 0%, 0.7);
 `
 
 const Name = styled.h2`
-  ${tw`font-bold uppercase text-2xl m-0 p-0 leading-none`};
+  ${tw`font-bold font-sans text-3xl my-1 p-0 leading-none tracking-wide`};
 `
 
 // TODO: check if this works
 const Tagline = styled.p`
-  ${tw`my-2 mb-0 mx-0 p-0 text-lg leading-none text-gray-500`};
+  ${tw`my-2 mb-0 mx-0 p-0 text-lg leading-none text-gray-300`};
 `
 
 const Image = styled.div`
