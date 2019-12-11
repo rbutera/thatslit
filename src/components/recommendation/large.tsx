@@ -38,13 +38,20 @@ const Image = styled.div`
 `;
 
 export function LargeRecommendation(props: RecommendationProps) {
+  const {
+    picture,
+    category = 'Uncategorized',
+    name = 'Untitled',
+    tagline = 'Not much is known about this.',
+  } = props;
+
   return (
-    <Box background={props.picture}>
+    <Box background={picture}>
       <Content>
         <Caption>
-          <Category>{props.category}</Category>
-          <Name>{props.name}</Name>
-          <Tagline>{props.tagline}</Tagline>
+          <Category>{category}</Category>
+          <Name>{name}</Name>
+          <Tagline>{tagline}</Tagline>
         </Caption>
       </Content>
     </Box>
