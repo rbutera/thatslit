@@ -13,7 +13,7 @@ const Caption = styled.figcaption`
 `
 
 const Name = styled.h2`
-  ${tw`font-bold font-sans text-2xl m-0 p-0 tracking-wide font-condensed`};
+  ${tw`font-bold font-sans text-2xl m-0 p-0 tracking-normal font-sans`};
 `
 
 const Tagline = styled.p`
