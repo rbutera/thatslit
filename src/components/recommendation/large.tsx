@@ -19,14 +19,14 @@ const Category = styled.span`
 `
 
 const Caption = styled.div`
-  ${tw`inline-block relative m-1 p-3 text-white w-auto overflow-hidden rounded-lg`};
+  ${tw`inline-block relative m-2 p-4 text-white w-auto overflow-hidden rounded-lg`};
   max-width: 50%;
   max-height: 66%;
   background: hsla(0, 0%, 0%, 0.7);
 `
 
-const Name = styled.h1`
-  ${tw`font-bold tracking-wide uppercase text-2xl m-0 p-0 leading-none`};
+const Name = styled.h2`
+  ${tw`font-bold uppercase text-2xl m-0 p-0 leading-none`};
 `
 
 // TODO: check if this works

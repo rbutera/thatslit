@@ -1,11 +1,12 @@
-import { createGlobalStyle } from 'styled-components';
-import { accent } from './constants/theme';
-import './fonts.css';
+import { createGlobalStyle } from 'styled-components'
+import { accent } from './constants/theme'
+import './fonts.css'
+import tw from 'tailwind.macro'
 
 export default createGlobalStyle`
   body {
+    ${tw`font-sans`};
     background-color: hsl(0,0,20%);
-    font-family: 'aktiv-grotesk-condensed', -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -14,4 +15,7 @@ export default createGlobalStyle`
     font-feature-settings: "pnum";
     font-variant-numeric: proportional-nums;
   }
-`;
+  h1, h2, h3, h4, h5, h6 {
+    ${tw`font-condensed tracking-widest`}
+  }
+`

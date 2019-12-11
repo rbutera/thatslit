@@ -4,23 +4,23 @@ import tw from 'tailwind.macro'
 import { RecommendationProps } from './recommendation'
 
 const Box = styled.article`
-  ${tw`flex`}
+  ${tw`flex items-center`}
 `
 
 const Caption = styled.figcaption`
   ${tw`flex flex-col content-start p-4`};
 `
 
-const Name = styled.span`
-  ${tw`font-bold uppercase text-lg m-0 p-0`};
+const Name = styled.h2`
+  ${tw`font-bold uppercase text-xl m-0 p-0 tracking-widest font-condensed`};
 `
 
 const Tagline = styled.p`
   ${tw`m-0 p-0`};
 `
 
-const Image = styled.div`
-  ${tw`block w-24 h-24 m-0 p-0 bg-cover bg-center overflow-hidden rounded`}
+const Image = styled.figure`
+  ${tw`inline-block w-24 h-24 bg-cover bg-center overflow-hidden rounded-full m-0 p-0 flex-none`}
   background-image: url(${props => props.src});
 `
 
@@ -40,6 +40,7 @@ export function SmallRecommendation(props: RecommendationProps) {
   return (
     <Box>
       <Image src={picture} />
+
       <Caption>
         {includeCategory ? <Category>{category}</Category> : ''}
         <Name>{name}</Name>

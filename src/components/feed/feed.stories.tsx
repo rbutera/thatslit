@@ -32,7 +32,19 @@ const ALL_URL =
   BASE_URL +
   '&maxRecords=9999&sort%5B0%5D%5Bfield%5D=Date&sort%5B0%5D%5Bdirection%5D=desc'
 
-export const recent = () => <FeedWithAirtable url={RECENT_URL} />
+export const recent = () => {
+  const chosenCategory = text('Category', 'all')
+  const numLarge = number('Number of large (featured) recommendations', 3)
+  const count = number('Total number of recommendations to display', 0)
+  return (
+    <FeedWithAirtable
+      numLarge={numLarge}
+      count={count}
+      category={chosenCategory}
+      url={RECENT_URL}
+    />
+  )
+}
 export const category = () => {
   const chosenCategory = text('Category', 'all')
   const numLarge = number('Number of large (featured) recommendations', 1)

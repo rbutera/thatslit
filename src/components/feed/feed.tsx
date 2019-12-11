@@ -31,6 +31,7 @@ type FeedProperties = {
   items: any[],
   numLarge: number,
   count: number,
+  includeCategory?: boolean,
 }
 
 type ItemProperties = {
@@ -41,8 +42,9 @@ type ItemProperties = {
  * Feed component - renders a list of recommendations
  * @params category the
  * @param items an array of the recommendation data
- * @param numLarge if 0 then all large, else this is the number of large recommendations to render (the rest are rendered as medium/small)
+ * @param numLarge if 0 then all small, else this is the number of large recommendations to render (the rest are rendered as medium/small). if -1 then all large
  * @param count if 0 then show all, otherwise limit the number of recommendations to render by this amount
+ * @param includeCategory if 0 then show all, otherwise limit the number of recommendations to render by this amount
  */
 const Feed = (props: FeedProperties) => {
   const { items = [], numLarge = 0, count = 0 } = props
@@ -52,11 +54,14 @@ const Feed = (props: FeedProperties) => {
     <FeedStyle>
       {filtered && filtered.length
         ? filtered.map((record, index) => {
-            const size = numLarge
-              ? index < numLarge
+            const size =
+              numLarge >= 0
+                ? index < numLarge
+                  ? 'large'
+                  : 'small'
+                : numLarge < 0
                 ? 'large'
                 : 'small'
-              : 'large'
             return (
               <Item size={size}>
                 <Recommendation
