@@ -15,7 +15,7 @@ const Content = styled.div`
   backdrop-filter: saturation(2) contrast(0.9) brightness(0.8);
 `;
 const Category = styled.span`
-  ${tw`uppercase tracking-widest text-sm`}
+  ${tw`uppercase tracking-widest text-xs font-bold text-gray-500`}
 `;
 
 const Caption = styled.div`
@@ -31,7 +31,7 @@ const Name = styled.h1`
 
 // TODO: check if this works
 const Tagline = styled.p`
-  ${tw`mt-1 mb-0 mx-0 p-0 text-lg leading-tight`};
+  ${tw`my-2 mb-0 mx-0 p-0 text-lg leading-none text-gray-500`};
 `;
 
 const Image = styled.div`

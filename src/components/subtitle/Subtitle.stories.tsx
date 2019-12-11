@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import Subtitle from './subtitle';
 
 export default {
-  title: 'Subtitle',
+  title: 'Atoms|Header/Subtitle',
 };
 
 const options = {

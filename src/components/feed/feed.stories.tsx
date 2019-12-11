@@ -4,7 +4,7 @@ import Feed from './feed';
 import { useAirTable } from '../../utils/useAirtable';
 
 export default {
-  title: 'Feed',
+  title: 'Molecules|Feed',
 };
 
 function FeedWithAirtable({ url }) {

@@ -10,6 +10,7 @@ export type RecommendationProps = {
   url: string,
   picture: string,
   size?: string,
+  includeCategory?: boolean,
 };
 
 export default function Recommendation(props: RecommendationProps) {

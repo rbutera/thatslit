@@ -4,7 +4,7 @@ import Recommendation from './recommendation';
 import styled from 'styled-components';
 
 export default {
-  title: 'Recommendation',
+  title: 'Atoms|Recommendation',
 };
 
 const LargeWrapper = styled.div`

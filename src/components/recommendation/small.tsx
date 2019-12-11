@@ -25,12 +25,20 @@ const Image = styled.div`
 `;
 
 export function SmallRecommendation(props: RecommendationProps) {
+  const {
+    picture,
+    name = 'Untitled',
+    tagline = 'Not much is known about this.',
+    includeCategory = false,
+  } = props;
+
   return (
     <Box>
-      <Image src={props.picture} />
+      <Image src={picture} />
       <Caption>
-        <Name>{props.name}</Name>
-        <Tagline>{props.tagline}</Tagline>
+        {includeCategory ? <Category>{category}</Category> : ''}
+        <Name>{name}</Name>
+        <Tagline>{tagline}</Tagline>
       </Caption>
     </Box>
   );

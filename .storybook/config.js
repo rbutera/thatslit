@@ -2,6 +2,11 @@ import { configure, addParameters } from '@storybook/react';
 import { addDecorator } from '@storybook/react';
 import React from 'react';
 import GlobalStyles from '../src/global.css';
+import { setConsoleOptions } from '@storybook/addon-console';
+
+setConsoleOptions({
+  panelExclude: [],
+});
 
 // addParameters({
 //   darkMode: {
