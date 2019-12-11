@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { RecommendationProps } from './recommendation';
+import { getRandomBackgroundColor } from '../../utils/random';
 
 const Box = styled.article`
   ${tw`relative w-full h-full bg-cover m-0 overflow-hidden bg-center rounded`}
   min-height: 240px;
+  ${() => getRandomBackgroundColor()}
   background-image: url(${props => props.background});
 `;
 const Content = styled.div`
