@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { RecommendationProps } from './recommendation'
+import { getRandomBackgroundColor } from '../../utils/random'
 
 const Box = styled.article`
   ${tw`flex items-center p-2`}
@@ -20,8 +21,29 @@ const Tagline = styled.p`
 `
 
 const Image = styled.figure`
-  ${tw`inline-block w-24 h-24 bg-cover bg-center overflow-hidden rounded-full m-0 p-0 flex-none`}
+  ${tw`
+    flex
+    flex-col
+    justify-center
+    items-center
+    text-center
+    w-24
+    h-24
+    bg-cover
+    bg-center
+    overflow-hidden
+    rounded
+    m-0
+    p-0
+    flex-none
+    text-5xl 
+    font-condensed
+    uppercase
+    font-bold 
+    text-white 
+  `}
   background-image: url(${props => props.src});
+  ${() => getRandomBackgroundColor()}
 `
 
 const Category = styled.span`
@@ -39,7 +61,7 @@ export function SmallRecommendation(props: RecommendationProps) {
 
   return (
     <Box>
-      <Image src={picture} />
+      <Image src={picture}>{picture ? '' : name.charAt(0)}</Image>
 
       <Caption>
         {includeCategory ? <Category>{category}</Category> : ''}
