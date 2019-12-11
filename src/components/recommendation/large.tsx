@@ -4,7 +4,7 @@ import tw from 'tailwind.macro';
 import { RecommendationProps } from './recommendation';
 
 const Box = styled.article`
-  ${tw`relative w-full h-full bg-cover m-0 overflow-hidden bg-center`}
+  ${tw`relative w-full h-full bg-cover m-0 overflow-hidden bg-center rounded`}
   min-height: 240px;
   background-image: url(${props => props.background});
 `;
@@ -17,20 +17,19 @@ const Category = styled.span`
 `;
 
 const Caption = styled.div`
-  ${tw`inline-block relative m-1 p-3 text-white w-auto overflow-hidden rounded`};
+  ${tw`inline-block relative m-1 p-3 text-white w-auto overflow-hidden rounded-lg`};
   max-width: 50%;
   max-height: 66%;
-  background: hsla(0, 0%, 0%, 0.5);
-
-  backdrop-filter: blur(32px) brightness(0.2);
+  background: hsla(0, 0%, 0%, 0.7);
 `;
 
 const Name = styled.h1`
   ${tw`font-bold tracking-wide uppercase text-2xl m-0 p-0 leading-none`};
 `;
 
+// TODO: check if this works
 const Tagline = styled.p`
-  ${tw`mt-1 mb-0 mx-0 p-0 text-lg`};
+  ${tw`mt-1 mb-0 mx-0 p-0 text-lg leading-tight`};
 `;
 
 const Image = styled.div`

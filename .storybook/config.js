@@ -1,7 +1,16 @@
-import { configure } from '@storybook/react';
+import { configure, addParameters } from '@storybook/react';
 import { addDecorator } from '@storybook/react';
 import React from 'react';
 import GlobalStyles from '../src/global.css';
+
+// addParameters({
+//   darkMode: {
+//     // // Override the default dark theme
+//     // dark: { ...themes.dark, appBg: 'black' },
+//     // // Override the default light theme
+//     // light: { ...themes.normal, appBg: 'red' },
+//   },
+// });
 
 function withGlobalStyles(storyFn) {
   return (
