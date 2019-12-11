@@ -1,30 +1,51 @@
-import React from 'react';
-import { action } from '@storybook/addon-actions';
-import Recommendation from './recommendation';
-import styled from 'styled-components';
+import React from 'react'
+import { action } from '@storybook/addon-actions'
+import Recommendation from './recommendation'
+import styled from 'styled-components'
+import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
 
 export default {
   title: 'Atoms|Recommendation',
-};
+  decorators: [withKnobs],
+}
 
 const LargeWrapper = styled.div`
   height: 375px;
   width: 375px;
   background: tomato;
-`;
+`
 
-const data = {
-  name: 'Lorem ipsum dolor sit amet',
-  tagline:
-    'A free and open source framework based on React that helps developers build blazing fast websites and apps',
-  picture: 'https://source.unsplash.com/random/1024x1024',
-  category: 'Example',
-  url: 'https://google.com',
-};
+export const small = () => {
+  const data = {
+    name: text('Name', 'Lorem ipsum dolor sit amet'),
+    tagline: text(
+      'Tagline',
+      'A free and open source framework based on React that helps developers build blazing fast websites and apps'
+    ),
+    picture: text('picture', 'https://source.unsplash.com/random/1024x1024'),
+    category: text('Category', 'Example'),
+    url: text('url', 'https://google.com'),
+    includeCategory: boolean('Include Category?', false),
+  }
 
-export const small = () => <Recommendation {...data} size="small" />;
-export const large = () => (
-  <LargeWrapper>
-    <Recommendation {...data} size="large" />
-  </LargeWrapper>
-);
+  return <Recommendation {...data} size="small" />
+}
+export const large = () => {
+  const data = {
+    name: text('Name', 'Lorem ipsum dolor sit amet'),
+    tagline: text(
+      'Tagline',
+      'A free and open source framework based on React that helps developers build blazing fast websites and apps'
+    ),
+    picture: text('picture', 'https://source.unsplash.com/random/1024x1024'),
+    category: text('Category', 'Example'),
+    url: text('url', 'https://google.com'),
+    includeCategory: boolean('Include Category?', false),
+  }
+
+  return (
+    <LargeWrapper>
+      <Recommendation {...data} size="large" />
+    </LargeWrapper>
+  )
+}

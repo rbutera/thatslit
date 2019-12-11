@@ -5,5 +5,5 @@
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
   "parser": "babel",
-  "semi": true
+  "semi": false
 }
