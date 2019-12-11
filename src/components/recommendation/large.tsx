@@ -21,12 +21,12 @@ const Category = styled.span`
 const Caption = styled.div`
   ${tw`inline-block relative m-2 p-4 text-white w-auto overflow-hidden rounded-lg`};
   max-width: 200px;
-  max-height: 66%;
+
   background: hsla(0, 0%, 0%, 0.7);
 `
 
 const Name = styled.h2`
-  ${tw`font-bold font-sans text-3xl my-1 p-0 leading-none tracking-wide`};
+  ${tw`font-bold font-sans text-3xl my-1 p-0 leading-none tracking-tight`};
 `
 
 // TODO: check if this works
