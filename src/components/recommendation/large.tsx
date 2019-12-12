@@ -28,7 +28,6 @@ const Name = styled.h2`
   ${tw`font-bold font-sans text-xl my-1 p-0 leading-none tracking-tight`};
 `
 
-// TODO: check if this works
 const Tagline = styled.p`
   ${tw`my-2 mb-0 mx-0 p-0 leading-none text-gray-300`};
 `
