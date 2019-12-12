@@ -5,13 +5,13 @@ import { RecommendationProps } from './recommendation'
 import { getRandomBackgroundColor } from '../../utils/random'
 
 const Box = styled.article`
-  ${tw`relative w-full h-full bg-cover m-0 overflow-hidden bg-center rounded`}
+  ${tw`inline-block relative w-full h-full bg-cover m-0 overflow-hidden bg-center rounded-lg shadow-lg`}
   min-height: 240px;
   ${() => getRandomBackgroundColor()}
   background-image: url(${props => props.background});
 `
 const Content = styled.div`
-  ${tw`flex flex-col items-end justify-end w-full h-full absolute top-0 left-0`}
+  ${tw`flex flex-col items-start justify-center w-full h-full absolute top-0 left-0`}
   backdrop-filter: saturation(2) contrast(0.9) brightness(0.8);
 `
 const Category = styled.span`
@@ -19,10 +19,10 @@ const Category = styled.span`
 `
 
 const Caption = styled.div`
-  ${tw`inline-block relative m-2 p-4 text-white w-auto overflow-hidden rounded-lg`};
+  ${tw`inline-block relative py-4 pl-4 text-white w-auto overflow-hidden rounded-lg rounded-r-none h-full`};
   max-width: 200px;
-
-  background: hsla(0, 0%, 0%, 0.7);
+  background: hsla(0, 0%, 0%, 0.5);
+  backdrop-filter: blur(20px) brightness(0.9);
 `
 
 const Name = styled.h2`

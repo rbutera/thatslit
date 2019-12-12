@@ -32,12 +32,12 @@ const LogoContainer = styled.div`
   a,
   a:hover,
   a:active {
-    ${tw`text-black`}
+    ${tw`text-white`}
   }
 `
 
 const SubtitleWrapper = styled.div`
-  ${tw`font-bold text-2xl p-4`};
+  ${tw`font-bold text-lg p-2`};
 `
 
 const LogoAndSubtitle = ({ subtitleOptions }) => (
@@ -55,8 +55,6 @@ const Header = ({ subtitleOptions }) => (
   <AnimatedContainer>
     <Container>
       <LogoAndSubtitle subtitleOptions={subtitleOptions} />
-
-      <Nav />
     </Container>
   </AnimatedContainer>
 )
