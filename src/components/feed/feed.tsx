@@ -23,8 +23,8 @@ const FeedStyle = styled.ul`
 `
 
 const Item = styled.li`
-  ${tw`my-2 block`};
-  ${(props: any) => (props.size === 'large' ? tw`p-0` : tw`p-2`)};
+  ${tw`block`};
+  ${(props: any) => (props.size === 'large' ? tw`p-0` : tw`p-0`)};
   height: ${(props: any) => (props.size === 'large' ? '240px' : 'auto')};
 `
 

@@ -5,11 +5,11 @@ import { RecommendationProps } from './recommendation'
 import { getRandomBackgroundColor } from '../../utils/random'
 
 const Box = styled.article`
-  ${tw`flex items-center p-2`}
+  ${tw`flex items-center p-0`}
 `
 
 const Caption = styled.figcaption`
-  ${tw`flex flex-col content-start mx-2 p-4`};
+  ${tw`flex flex-col content-start mx-2 p-0`};
 `
 
 const Name = styled.h2`
@@ -32,7 +32,6 @@ const Image = styled.figure`
     bg-cover
     bg-center
     overflow-hidden
-    rounded
     m-0
     p-0
     flex-none
