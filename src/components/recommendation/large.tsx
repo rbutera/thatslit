@@ -38,7 +38,7 @@ const Image = styled.div`
   background-image: url(${props => props.src});
 `
 
-const Foobar = styled.div`
+const Picture = styled.div`
   ${tw`bg-red-400 w-full h-full block m-0 p-0 bg-cover bg-center`}
   background-image: url(${props => props.src});
 `
@@ -58,7 +58,7 @@ export function LargeRecommendation(props: RecommendationProps) {
           <Name>{name}</Name>
           <Tagline>{tagline}</Tagline>
         </Caption>
-        <Foobar src={picture} />
+        <Picture src={picture} />
       </Content>
     </Box>
   )
