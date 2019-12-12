@@ -26,7 +26,7 @@ const Caption = styled.div`
 `
 
 const Name = styled.h2`
-  ${tw`font-bold font-sans text-3xl my-1 p-0 leading-none tracking-tight`};
+  ${tw`font-bold font-sans text-4xl my-1 p-0 leading-none tracking-tight`};
 `
 
 // TODO: check if this works

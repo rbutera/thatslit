@@ -11,13 +11,42 @@ const Root = styled.div`
   ${tw``}
 `
 
+const subtitleOptions = {
+  first: [
+    'curated collection',
+    'sexy smörgåsbord',
+    'supreme selection',
+    'personal platter',
+    'stupendous set',
+  ],
+  second: [
+    'dope developments',
+    'superb suggestions',
+    'incredible inspiration',
+    'terrific tools',
+    'incredible innovation',
+    'delightful design',
+    'electric endeavours',
+    'fan favorites',
+    'awesome apps',
+    "tomorrow's technology",
+    'wavy websites',
+    'songs that slap',
+    'professional passion',
+    'motivation and muse',
+  ],
+}
+
 const Layout = ({ data, children }) => (
   <Root>
     <GlobalStyle />
 
     <Head />
 
-    <Header title={data.site.siteMetadata.siteTitle} />
+    <Header
+      title={data.site.siteMetadata.siteTitle}
+      subtitleOptions={subtitleOptions}
+    />
     {children}
   </Root>
 )

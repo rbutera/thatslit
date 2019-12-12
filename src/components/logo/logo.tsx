@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 const Text = styled.div`
-  ${tw`leading-tight tracking-wide uppercase`};
+  ${tw`leading-tight tracking-tight`};
   font-weight: 900;
   font-size: 6rem;
 `
