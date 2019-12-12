@@ -32,7 +32,7 @@ const LogoContainer = styled.div`
   a,
   a:hover,
   a:active {
-    ${tw`text-black`}
+    ${tw`text-white`}
   }
 `
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Head from 'components/head'
@@ -6,6 +6,7 @@ import Header from 'components/header'
 import GlobalStyle from '../../global-style'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
+import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 
 const Root = styled.div`
   ${tw``}
@@ -37,19 +38,26 @@ const subtitleOptions = {
   ],
 }
 
-const Layout = ({ data, children }) => (
-  <Root>
-    <GlobalStyle />
+const Container = styled.div`
+  ${tw`flex flex-col m-0 p-0`};
+`
 
-    <Head />
+const Layout = ({ data, children }) => {
+  const pRef = useRef()
 
-    <Header
-      title={data.site.siteMetadata.siteTitle}
-      subtitleOptions={subtitleOptions}
-    />
-    {children}
-  </Root>
-)
+  return (
+    <Root>
+      <GlobalStyle />
+
+      <Head />
+
+      <Container>
+        <Header subtitleOptions={subtitleOptions} />
+        {children}
+      </Container>
+    </Root>
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

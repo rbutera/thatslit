@@ -5,8 +5,8 @@ import tw from 'tailwind.macro'
 
 export default createGlobalStyle`
   body {
-    ${tw`font-sans`};
-    background-color: hsl(0,0,20%);
+    ${tw`font-sans bg-gray-900 text-white`};
+    
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
