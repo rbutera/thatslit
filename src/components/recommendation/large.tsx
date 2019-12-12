@@ -14,14 +14,15 @@ const Content = styled.div`
   ${tw`flex flex-none items-start justify-center w-full h-full absolute top-0 left-0`}
 `
 const Category = styled.span`
-  ${tw`uppercase tracking-widest text-xs font-bold text-gray-500`}
+  ${tw`uppercase tracking-widest text-xs font-bold`}
 `
 
 const Caption = styled.div`
   ${tw`inline-block flex-none relative py-4 px-4 text-white w-auto overflow-hidden h-full`};
   max-width: 150px;
-  background: hsla(0, 0%, 0%, 0.5);
-  backdrop-filter: blur(40px) brightness(0.9);
+  min-width: 150px;
+  background: hsla(0, 0%, 0%, 0.1);
+  backdrop-filter: contrast(0.9) blur(50px) brightness(0.7);
 `
 
 const Name = styled.h2`
@@ -29,7 +30,7 @@ const Name = styled.h2`
 `
 
 const Tagline = styled.p`
-  ${tw`my-2 mb-0 mx-0 p-0 leading-none text-gray-300`};
+  ${tw`my-2 mb-0 mx-0 p-0 leading-none text-gray-100`};
 `
 
 const Image = styled.div`
