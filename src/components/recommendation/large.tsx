@@ -5,7 +5,7 @@ import { RecommendationProps } from './recommendation'
 import { getRandomBackgroundColor } from '../../utils/random'
 
 const Box = styled.article`
-  ${tw`relative w-full h-full bg-cover m-0 overflow-hidden bg-center rounded`}
+  ${tw`inline-block relative w-full h-full bg-cover m-0 overflow-hidden bg-center rounded-lg shadow-lg`}
   min-height: 240px;
   ${() => getRandomBackgroundColor()}
   background-image: url(${props => props.background});

@@ -5,8 +5,8 @@ import tw from 'tailwind.macro'
 const Text = styled.div`
   ${tw`tracking-tight`};
   font-weight: 900;
-  font-size: 6rem;
-  line-height: 5.2rem;
+  font-size: 3rem;
+  line-height: 2.9rem;
 `
 
 const Logo = () => {
