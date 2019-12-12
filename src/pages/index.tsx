@@ -17,9 +17,7 @@ const ALL_URL =
   BASE_URL +
   '&maxRecords=9999&sort%5B0%5D%5Bfield%5D=Date&sort%5B0%5D%5Bdirection%5D=desc'
 
-const Section = styled.section`
-  ${tw`flex flex-col`}
-`
+const Section = styled.section``
 
 const RecentlyAdded = () => {
   const items = useAirTable(RECENT_URL)
@@ -31,6 +29,8 @@ const RecentlyAdded = () => {
     </Section>
   )
 }
+
+
 
 const Subcat = ({ category = 'all', ...rest }) => {
   const items = useAirTable(ALL_URL)

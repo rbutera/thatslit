@@ -11,27 +11,26 @@ const Box = styled.article`
   background-image: url(${props => props.background});
 `
 const Content = styled.div`
-  ${tw`flex flex-col items-start justify-center w-full h-full absolute top-0 left-0`}
-  backdrop-filter: saturation(2) contrast(0.9) brightness(0.8);
+  ${tw`flex flex-none items-start justify-center w-full h-full absolute top-0 left-0`}
 `
 const Category = styled.span`
   ${tw`uppercase tracking-widest text-xs font-bold text-gray-500`}
 `
 
 const Caption = styled.div`
-  ${tw`inline-block relative py-4 pl-4 text-white w-auto overflow-hidden  h-full`};
-  max-width: 200px;
+  ${tw`inline-block flex-none relative py-4 px-4 text-white w-auto overflow-hidden h-full`};
+  max-width: 150px;
   background: hsla(0, 0%, 0%, 0.5);
-  backdrop-filter: blur(20px) brightness(0.9);
+  backdrop-filter: blur(40px) brightness(0.9);
 `
 
 const Name = styled.h2`
-  ${tw`font-bold font-sans text-4xl my-1 p-0 leading-none tracking-tight`};
+  ${tw`font-bold font-sans text-xl my-1 p-0 leading-none tracking-tight`};
 `
 
 // TODO: check if this works
 const Tagline = styled.p`
-  ${tw`my-2 mb-0 mx-0 p-0 text-lg leading-none text-gray-300`};
+  ${tw`my-2 mb-0 mx-0 p-0 leading-none text-gray-300`};
 `
 
 const Image = styled.div`
@@ -39,6 +38,10 @@ const Image = styled.div`
   background-image: url(${props => props.src});
 `
 
+const Foobar = styled.div`
+  ${tw`bg-red-400 w-full h-full block m-0 p-0 bg-cover bg-center`}
+  background-image: url(${props => props.src});
+`
 export function LargeRecommendation(props: RecommendationProps) {
   const {
     picture,
@@ -55,6 +58,7 @@ export function LargeRecommendation(props: RecommendationProps) {
           <Name>{name}</Name>
           <Tagline>{tagline}</Tagline>
         </Caption>
+        <Foobar src={picture} />
       </Content>
     </Box>
   )

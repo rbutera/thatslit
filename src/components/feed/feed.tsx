@@ -24,7 +24,7 @@ const FeedStyle = styled.ul`
 
 const Item = styled.li`
   ${tw`block`};
-  ${(props: any) => (props.size === 'large' ? tw`p-0` : tw`p-0`)};
+  ${(props: any) => (props.size === 'large' ? tw`overflow-hidden` : tw`p-0`)};
   height: ${(props: any) => (props.size === 'large' ? '240px' : 'auto')};
 `
 

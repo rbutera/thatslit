@@ -37,7 +37,7 @@ const LogoContainer = styled.div`
 `
 
 const SubtitleWrapper = styled.div`
-  ${tw`font-bold text-lg p-2`};
+  ${tw`font-bold text-lg text-gray-500 px-2`};
 `
 
 const LogoAndSubtitle = ({ subtitleOptions }) => (
