@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import posed from 'react-pose'
-import { Container } from './header.css'
 import Title from 'components/title'
 import Nav from 'components/header/nav'
 import Logo from '../logo/logo'
@@ -10,24 +9,36 @@ import Subtitle from '../subtitle/subtitle'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
+export const Container = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+`
+
 // Example of a component-specific page transition
-const AnimatedContainer = posed.div({
-  enter: {
-    y: 0,
-    transition: {
-      ease: 'easeInOut',
-    },
-  },
-  exit: {
-    y: '-100%',
-    transition: {
-      ease: 'easeInOut',
-    },
-  },
-})
+const AnimatedContainer = styled.div`` // TODO: replace with actual animated container
 
 const LogoContainer = styled.div`
   ${tw`flex flex-col`};
+
+  a,
+  a:hover,
+  a:active {
+    ${tw`text-black`}
+  }
+`
+
+const SubtitleWrapper = styled.div`
+  ${tw`font-bold text-2xl p-4`};
 `
 
 const LogoAndSubtitle = ({ subtitleOptions }) => (
@@ -35,11 +46,13 @@ const LogoAndSubtitle = ({ subtitleOptions }) => (
     <Link to="/">
       <Logo />
     </Link>
-    <Subtitle options={subtitleOptions}></Subtitle>
+    <SubtitleWrapper>
+      <Subtitle options={subtitleOptions} />
+    </SubtitleWrapper>
   </LogoContainer>
 )
 
-const Header = ({ title, subtitleOptions }) => (
+const Header = ({ subtitleOptions }) => (
   <AnimatedContainer>
     <Container>
       <LogoAndSubtitle subtitleOptions={subtitleOptions} />
