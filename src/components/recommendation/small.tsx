@@ -39,6 +39,7 @@ const Image = styled.figure`
     font-condensed
     uppercase
     font-bold 
+    select-none
     text-white 
   `}
   background-image: url(${props => props.src});

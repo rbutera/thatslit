@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 const Text = styled.div`
-  ${tw`tracking-tight`};
-  font-weight: 900;
+  ${tw`font-black tracking-tight select-none`};
+
   font-size: 3rem;
   line-height: 2.9rem;
 `

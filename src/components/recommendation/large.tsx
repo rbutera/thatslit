@@ -13,7 +13,7 @@ const Content = styled.div`
   ${tw`flex flex-none items-start justify-center w-full h-full absolute top-0 left-0 m-0 p-0`}
 `
 const Category = styled.span`
-  ${tw`uppercase tracking-widest text-xs font-bold`}
+  ${tw`uppercase tracking-widest text-xs font-bold rounded opacity-75 my-2`}
 `
 
 const Caption = styled.div`
@@ -56,10 +56,9 @@ export function LargeRecommendation(props: RecommendationProps) {
     <Box background={picture}>
       <Content>
         <Caption>
+          <Category>{category}</Category>
           <Name>{name}</Name>
           <Tagline>{tagline}</Tagline>
-          <Spacer />
-          <Category>{category}</Category>
         </Caption>
         <Picture src={picture} />
       </Content>

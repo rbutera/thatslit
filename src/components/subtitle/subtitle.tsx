@@ -8,7 +8,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 export const Text = styled.div`
-  ${tw`leading-tight`};
+  ${tw`leading-tight select-none`};
 `
 
 export const Line = styled.span`
