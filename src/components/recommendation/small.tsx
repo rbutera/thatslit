@@ -15,7 +15,7 @@ const Tagline = styled.p`
 
 const Image = styled.figure`
   ${tw`
-    w-full h-full bg-cover bg-center m-0 p-0
+    w-full h-full bg-cover bg-center m-0 p-0 flex justify-center items-center text-center text-white text-bold
   `}
   background-image: url(${props => props.src});
   ${() => getRandomBackgroundColor()}
@@ -25,27 +25,6 @@ const Category = styled.span`
   ${tw`mt-4 uppercase tracking-wide text-sm text-gray-600`}
 `
 
-// export function SmallRecommendation(props: RecommendationProps) {
-//   const {
-//     picture,
-//     name = 'Untitled',
-//     category = 'Uncategorised',
-//     tagline = 'Not much is known about this.',
-//     includeCategory = false,
-//   } = props
-
-//   return (
-//     <Box>
-//       <Image src={picture}>{picture ? '' : name.charAt(0)}</Image>
-
-//       <Caption>
-//         {includeCategory ? <Category>{category}</Category> : ''}
-//         <Name>{name}</Name>
-//         <Tagline>{tagline}</Tagline>
-//       </Caption>
-//     </Box>
-//   )
-// }
 export function SmallRecommendation(props: RecommendationProps) {
   const {
     picture,
@@ -61,7 +40,11 @@ export function SmallRecommendation(props: RecommendationProps) {
       horizontal
       small
       footer={<Category>{category}</Category>}
-      image={<Image src={picture}>{picture ? '' : name.charAt(0)}</Image>}
+      image={
+        <Image src={picture}>
+          {picture && picture.length ? '' : name.charAt(0)}
+        </Image>
+      }
     >
       <Name>{name}</Name>
       <Tagline>{tagline}</Tagline>
