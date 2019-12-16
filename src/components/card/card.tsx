@@ -45,22 +45,18 @@ export type CardProps = {
 }
 
 export const Card = (props: CardProps) => {
+  const { children, footer, image, ...rest } = props
   const {
-    image,
-    children,
-    footer,
     vertical = true,
     horizontal = !vertical,
     size = '300px',
     small = false,
-  } = props
+  } = rest
 
   return (
-    <Box horizontal={horizontal} size={size} small={small}>
-      <Body horizontal={horizontal} small={small} size={size}>
-        {image}
-      </Body>
-      <Label horizontal={horizontal}>
+    <Box {...rest}>
+      <Body {...rest}>{image}</Body>
+      <Label {...rest}>
         <Content>{children}</Content>
         <Footer>{footer}</Footer>
       </Label>
