@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import { getRandomBackgroundColor } from '../../utils/random'
 
 const Box = styled.div`
   ${tw`relative flex bg-white text-black rounded-lg overflow-hidden w-full h-full`};
   ${(props: any) => (props.horizontal ? tw`flex-row` : tw`flex-col`)};
 `
 const Body = styled.figure`
-  ${() => getRandomBackgroundColor()}
   ${tw`relative m-0 p-0 text-center flex flex-col justify-center uppercase select-none text-white font-bold tracking-widest overflow-hidden`};
   width: ${props => (props.horizontal ? props.size : '100%')};
   height: ${props => (props.horizontal ? 'auto' : props.size)};
