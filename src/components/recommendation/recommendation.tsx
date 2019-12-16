@@ -1,8 +1,29 @@
 import React from 'react'
+import styled from 'styled-components'
+import tw from 'tailwind.macro'
+import { getRandomBackgroundColor } from '../../utils/random'
+import { Card } from '../card/card'
 
-import { SmallRecommendation } from './small'
-import { LargeRecommendation } from './large'
-import { MediumRecommendation } from './medium'
+const Name = styled.h2`
+  ${tw`font-bold m-0 p-0 text-base`};
+`
+
+const Tagline = styled.p`
+  ${tw`m-0 mb-8 p-0 text-base`};
+  max-width: 30rem;
+`
+
+const Image = styled.figure`
+  ${tw`
+    w-full h-full bg-cover bg-center m-0 p-0 text-4xl flex justify-center items-center text-center text-white text-bold
+  `}
+  background-image: url(${props => props.src});
+  ${() => getRandomBackgroundColor()}
+`
+
+const Category = styled.span`
+  ${tw`mt-4 uppercase tracking-wide text-sm text-gray-600`}
+`
 
 export type RecommendationProps = {
   name?: string,
@@ -10,19 +31,38 @@ export type RecommendationProps = {
   category?: string,
   url?: string,
   picture?: string,
-  size?: string,
+  variant?: 'small' | 'medium' | 'large',
   includeCategory?: boolean,
 }
 
-export default function Recommendation(props: RecommendationProps) {
-  const { size, ...rest } = props
+export function Recommendation(props: RecommendationProps) {
+  const {
+    picture,
+    name = 'Untitled',
+    category = 'Uncategorised',
+    tagline = 'Not much is known about this.',
+    includeCategory = true,
+    variant = 'small',
+  } = props
 
-  switch (size) {
-    case 'large':
-      return <LargeRecommendation {...rest} />
-    case 'medium':
-      return <MediumRecommendation {...rest} />
-    default:
-      return <SmallRecommendation {...rest} />
-  }
+  const sizeValue = variant === 'small' ? '25%' : '1024px'
+
+  return (
+    <Card
+      size={sizeValue}
+      horizontal={variant === 'small'}
+      small={variant === 'small'}
+      footer={<Category>{includeCategory ? category : ''}</Category>}
+      image={
+        <Image src={picture}>
+          {picture && picture.length ? '' : name.charAt(0)}
+        </Image>
+      }
+    >
+      <Name>{name}</Name>
+      <Tagline>{tagline}</Tagline>
+    </Card>
+  )
 }
+
+export default Recommendation

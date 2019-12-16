@@ -10,9 +10,8 @@ export default {
 }
 
 const LargeWrapper = styled.div`
-  height: 375px;
-  width: 375px;
-  background: tomato;
+  height: 50vh;
+  width: 50vw;
 `
 
 export const small = () => {
@@ -28,7 +27,7 @@ export const small = () => {
     includeCategory: boolean('Include Category?', false),
   }
 
-  return <Recommendation {...data} size="small" />
+  return <Recommendation {...data} variant="small" />
 }
 export const large = () => {
   const data = {
@@ -40,12 +39,12 @@ export const large = () => {
     picture: text('picture', 'https://source.unsplash.com/random/1024x1024'),
     category: text('Category', 'Example'),
     url: text('url', 'https://google.com'),
-    includeCategory: boolean('Include Category?', false),
+    includeCategory: boolean('Include Category?', true),
   }
 
   return (
     <LargeWrapper>
-      <Recommendation {...data} size="large" />
+      <Recommendation {...data} variant="large" />
     </LargeWrapper>
   )
 }
