@@ -88,7 +88,7 @@ const Subtitle = ({ as = 'span', size = 'medium', options }) => {
           setSecondOptions(optionsRef.current.second)
         }, 1000)
       }, 1000)
-    }, 5000)
+    }, 10000)
 
     return () => {
       clearInterval(i)
