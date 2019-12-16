@@ -10,12 +10,13 @@ const Name = styled.h2`
 `
 
 const Tagline = styled.p`
-  ${tw`m-0 mb-4 p-0 text-base`};
+  ${tw`m-0 mb-8 p-0 text-base`};
+  max-width: 30rem;
 `
 
 const Image = styled.figure`
   ${tw`
-    w-full h-full bg-cover bg-center m-0 p-0 flex justify-center items-center text-center text-white text-bold
+    w-full h-full bg-cover bg-center m-0 p-0 text-4xl flex justify-center items-center text-center text-white text-bold
   `}
   background-image: url(${props => props.src});
   ${() => getRandomBackgroundColor()}
