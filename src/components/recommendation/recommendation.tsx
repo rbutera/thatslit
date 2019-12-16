@@ -2,6 +2,7 @@ import React from 'react'
 
 import { SmallRecommendation } from './small'
 import { LargeRecommendation } from './large'
+import { MediumRecommendation } from './medium'
 
 export type RecommendationProps = {
   name?: string,
@@ -19,6 +20,8 @@ export default function Recommendation(props: RecommendationProps) {
   switch (size) {
     case 'large':
       return <LargeRecommendation {...rest} />
+    case 'medium':
+      return <MediumRecommendation {...rest} />
     default:
       return <SmallRecommendation {...rest} />
   }
