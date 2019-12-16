@@ -29,7 +29,7 @@ function shuffle(input = []) {
 }
 
 const AnimatedSegmentStyle = styled.span`
-  ${tw`text-gray-300`};
+  ${tw``};
 `
 
 const AnimatedSegment = ({ children }) => {

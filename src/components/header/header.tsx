@@ -32,12 +32,12 @@ const LogoContainer = styled.div`
   a,
   a:hover,
   a:active {
-    ${tw`text-white`}
+    ${tw`text-black`}
   }
 `
 
 const SubtitleWrapper = styled.div`
-  ${tw`text-lg text-gray-500 px-2 w-full h-12 overflow-hidden inline-block font-accent font-thin`};
+  ${tw`text-lg text-gray-600 px-2 w-full h-12 overflow-hidden inline-block font-body font-thin`};
 `
 
 const LogoAndSubtitle = ({ subtitleOptions }) => (

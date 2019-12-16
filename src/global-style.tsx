@@ -14,7 +14,7 @@ export default createGlobalStyle`
   }
 
   body {
-    ${tw`m-0 p-0 font-sans bg-gray-100 text-white`};
+    ${tw`m-0 p-0 font-sans bg-gray-100 text-gray-900`};
     -webkit-text-size-adjust: 100%;
     width: 100vw;
     max-width: 100vw;
@@ -26,6 +26,6 @@ export default createGlobalStyle`
     font-variant-numeric: proportional-nums;
   }
   h1, h2, h3, h4, h5, h6 {
-    ${tw`font-condensed tracking-widest`}
+    ${tw`font-bold`}
   }
 `
