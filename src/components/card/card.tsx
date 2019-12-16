@@ -4,14 +4,15 @@ import tw from 'tailwind.macro'
 import { getRandomBackgroundColor } from '../../utils/random'
 
 const Box = styled.div`
-  ${tw`flex flex-col bg-white text-black rounded-lg overflow-hidden`};
-  width: 420px;
-  height: 420px;
+  ${tw`relative flex bg-white text-black rounded-lg overflow-hidden w-full h-full`};
+  ${(props: any) => (props.horizontal ? tw`flex-row` : tw`flex-col`)};
+  height: ${(props: any) => (props.height ? props.height : '')}px;
 `
 const Image = styled.figure`
-  ${tw`bg-cover bg-center flex-grow w-full h-full m-0 p-2 text-center flex flex-col justify-center uppercase select-none text-white font-bold tracking-widest overflow-hidden`};
-  ${() => getRandomBackgroundColor()}
   background-image: url(${(props: any) => (props.src ? props.src : '')});
+  ${() => getRandomBackgroundColor()}
+  ${tw`bg-cover bg-center flex-grow w-full h-full m-0 p-2 text-center flex flex-col justify-center uppercase select-none text-white font-bold tracking-widest overflow-hidden`};
+  ${(props: any) => (props.horizontal ? tw`opacity-25` : tw`opacity-50`)};
 `
 
 const Label = styled.div`
@@ -46,6 +47,7 @@ export type CardProps = {
   children: Component,
   vertical?: boolean,
   horizontal?: boolean,
+  height?: number,
 }
 
 export const Card = (props: CardProps) => {
@@ -58,10 +60,11 @@ export const Card = (props: CardProps) => {
     footer,
     vertical = true,
     horizontal = !vertical,
+    height = 300,
   } = props
 
   return (
-    <Box>
+    <Box horizontal={horizontal} height={height}>
       <Image src={image && image.src ? image.src : ''}>
         {image && image.src ? '' : image.alt}
       </Image>
