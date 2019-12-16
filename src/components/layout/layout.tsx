@@ -10,6 +10,14 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 
 const Root = styled.div`
   ${tw``}
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
 `
 
 const subtitleOptions = {

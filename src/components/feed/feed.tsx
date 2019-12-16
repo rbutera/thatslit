@@ -23,9 +23,10 @@ const FeedStyle = styled.ul`
 `
 
 const Item = styled.li`
-  ${tw`block`};
-  ${(props: any) => (props.size === 'large' ? tw`overflow-hidden` : tw`p-0`)};
-  height: ${(props: any) => (props.size === 'large' ? '50vh' : 'auto')};
+  ${tw`block py-2`};
+  ${(props: any) => (props.size === 'large' ? tw`` : tw``)};
+  height: ${(props: any) =>
+    props.size === 'large' ? (props.height ? props.height : '400px') : 'auto'};
 `
 
 type FeedProperties = {

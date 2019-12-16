@@ -24,7 +24,7 @@ export const small = () => {
     picture: text('picture', 'https://source.unsplash.com/random/1024x1024'),
     category: text('Category', 'Example'),
     url: text('url', 'https://google.com'),
-    includeCategory: boolean('Include Category?', false),
+    includeCategory: boolean('Include Category?', true),
   }
 
   return <Recommendation {...data} variant="small" />
