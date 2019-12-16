@@ -1,12 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import { Text, Line, LineHeight } from './subtitle.css'
 import { useObservable } from 'rxjs-hooks'
 import { interval } from 'rxjs'
 import { map, withLatestFrom } from 'rxjs/operators'
 import { useTransition, animated } from 'react-spring'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
+
+export const Text = styled.div`
+  ${tw`leading-tight`};
+`
+
+export const Line = styled.span`
+  ${tw`block leading-tight`}
+`
 
 function shuffle(input = []) {
   if (!input || input.length < 2) {
