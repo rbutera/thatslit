@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 import { accent } from './constants/theme'
 import './fonts.css'
 import './tailwind.css'
+
 import tw from 'tailwind.macro'
 
 export default createGlobalStyle`

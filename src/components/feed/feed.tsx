@@ -60,7 +60,7 @@ const DesktopFeed = ({ baseHeight, data, numLarge, columns }) => {
         : 'small'
 
     const height =
-      size === 'small' ? 128 : index > 0 ? baseHeight : baseHeight * 1.618
+      size === 'small' ? 128 : index > 0 ? baseHeight : baseHeight * 1.337
     return { recommendation: normalizeFields(record.fields), size, height }
   })
 
@@ -111,7 +111,7 @@ const Feed = (props: FeedProperties) => {
       return 400
     }
     if (matches.xl) {
-      return 400
+      return 450
     }
   }
 

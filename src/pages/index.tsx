@@ -6,6 +6,8 @@ import { useAirTable } from '../utils/useAirtable'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { Masonry } from '../components/masonry/masonry'
+import { getRandomBackgroundColor } from '../utils/random'
+import { UI_COLORS, getBackgroundColor } from '../utils/colors'
 
 const BASE_URL =
   'https://api.airtable.com/v0/appzWIcmWWhnfUEtf/Prototype?api_key=keyD9WDUfMMgSQkg0'
@@ -19,10 +21,14 @@ const ALL_URL =
   '&maxRecords=9999&sort%5B0%5D%5Bfield%5D=Date&sort%5B0%5D%5Bdirection%5D=desc'
 
 const Section = styled.section`
-  ${tw`w-full flex flex-row justify-center`}
+  ${tw`w-full flex flex-row justify-center py-8`}
 `
 const Container = styled.div`
-  ${tw`w-full sm:w-4/5 lg:w-2/3`}
+  ${tw`w-full sm:w-4/5 lg:w-3/4 xl:w-2/3`}
+`
+
+const Header = styled.h1`
+  ${tw`inline-block font-sans tracking-tight px-4`};
 `
 
 const RecentlyAdded = () => {
@@ -31,20 +37,31 @@ const RecentlyAdded = () => {
   return (
     <Section>
       <Container>
-        <CategoryHeader>Recently Added</CategoryHeader>
+        <Header>Recently Added</Header>
         <Feed numLarge="-1" items={items} />
       </Container>
     </Section>
   )
 }
 
-const Subcat = ({ category = 'all', name = category, ...rest }) => {
+const SectionWithBackgroundColor = styled(Section)`
+  /* ${tw`text-white`}; */
+
+  ${props => getBackgroundColor(props.color, 'light')};
+`
+
+const Subcat = ({
+  category = 'all',
+  color = 'gray',
+  name = category,
+  ...rest
+}) => {
   const items = useAirTable(ALL_URL)
 
   return (
-    <Section>
+    <SectionWithBackgroundColor color={color}>
       <Container>
-        <CategoryHeader>{name}</CategoryHeader>
+        <Header>{name}</Header>
         <Feed
           {...rest}
           numLarge="3"
@@ -52,7 +69,7 @@ const Subcat = ({ category = 'all', name = category, ...rest }) => {
           items={items.filter(({ fields }) => fields['Subcat'] === category)}
         />
       </Container>
-    </Section>
+    </SectionWithBackgroundColor>
   )
 }
 
@@ -60,8 +77,8 @@ const Index = ({ data }) => {
   return (
     <Layout>
       <RecentlyAdded />
-      <Subcat category="Productivity" />
-      <Subcat category="Web Development" />
+      <Subcat color="yellow" category="Productivity" />
+      <Subcat color="green" category="Web Development" />
     </Layout>
   )
 }
