@@ -47,7 +47,7 @@ const subtitleOptions = {
 }
 
 const Container = styled.div`
-  ${tw`flex flex-col m-0 p-2`};
+  ${tw`flex flex-col m-0 p-2 justify-start`};
 `
 
 const Layout = ({ data, children }) => {

@@ -18,15 +18,22 @@ const ALL_URL =
   BASE_URL +
   '&maxRecords=9999&sort%5B0%5D%5Bfield%5D=Date&sort%5B0%5D%5Bdirection%5D=desc'
 
-const Section = styled.section``
+const Section = styled.section`
+  ${tw`w-full flex flex-row justify-center`}
+`
+const Container = styled.div`
+  ${tw`w-full sm:w-4/5 lg:w-2/3`}
+`
 
 const RecentlyAdded = () => {
   const items = useAirTable(RECENT_URL)
 
   return (
     <Section>
-      <CategoryHeader>Recently Added</CategoryHeader>
-      <Feed numLarge="-1" items={items} />
+      <Container>
+        <CategoryHeader>Recently Added</CategoryHeader>
+        <Feed numLarge="-1" items={items} />
+      </Container>
     </Section>
   )
 }
@@ -36,11 +43,15 @@ const Subcat = ({ category = 'all', name = category, ...rest }) => {
 
   return (
     <Section>
-      <CategoryHeader>{name}</CategoryHeader>
-      <Feed
-        {...rest}
-        items={items.filter(({ fields }) => fields['Subcat'] === category)}
-      />
+      <Container>
+        <CategoryHeader>{name}</CategoryHeader>
+        <Feed
+          {...rest}
+          numLarge="3"
+          count="5"
+          items={items.filter(({ fields }) => fields['Subcat'] === category)}
+        />
+      </Container>
     </Section>
   )
 }

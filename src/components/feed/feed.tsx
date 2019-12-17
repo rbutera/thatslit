@@ -48,7 +48,7 @@ const Padding = styled.div`
   ${tw`w-full h-full p-4`};
 `
 
-const DesktopFeed = ({ data, numLarge, columns }) => {
+const DesktopFeed = ({ baseHeight, data, numLarge, columns }) => {
   const withSizes = data.map((record, index) => {
     const size =
       numLarge >= 0
@@ -59,9 +59,8 @@ const DesktopFeed = ({ data, numLarge, columns }) => {
         ? 'large'
         : 'small'
 
-    const largeBaseHeight = 320
     const height =
-      size === 'small' ? 128 : index > 0 ? largeBaseHeight : largeBaseHeight * 2
+      size === 'small' ? 128 : index > 0 ? baseHeight : baseHeight * 1.618
     return { recommendation: normalizeFields(record.fields), size, height }
   })
 
@@ -78,7 +77,7 @@ const DesktopFeed = ({ data, numLarge, columns }) => {
       columns={columns}
     >
       {(data, maximized, toggle) => (
-        <Cell onClick={toggle}>
+        <Cell>
           <Padding>
             <Recommendation
               {...data.recommendation}
@@ -104,6 +103,18 @@ const Feed = (props: FeedProperties) => {
   const { items = [], numLarge = 0, count = 0 } = props
   const filtered = count ? take(count, items) : items
 
+  const calculateBaseHeight = matches => {
+    if (matches.md) {
+      return 400
+    }
+    if (matches.lg) {
+      return 400
+    }
+    if (matches.xl) {
+      return 400
+    }
+  }
+
   return (
     <Responsive>
       {matches => (
@@ -120,7 +131,12 @@ const Feed = (props: FeedProperties) => {
               )
             })}
           {(matches.md || matches.lg || matches.xl) && (
-            <DesktopFeed numLarge={numLarge} data={filtered} columns={2} />
+            <DesktopFeed
+              baseHeight={calculateBaseHeight(matches)}
+              numLarge={numLarge}
+              data={filtered}
+              columns={2}
+            />
           )}
         </>
       )}
