@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 const Box = styled.div`
-  ${tw`relative flex bg-white text-black rounded-lg overflow-hidden w-full h-full`};
+  ${tw`relative flex bg-white text-black rounded-lg overflow-hidden w-full h-full max-h-screen`};
   ${(props: any) => (props.horizontal ? tw`flex-row` : tw`flex-col`)};
 `
 const Body = styled.figure`

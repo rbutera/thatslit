@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Recommendation from '../recommendation/recommendation'
 import { take } from 'rambda'
+import { Responsive } from '../media/responsive'
+import { Grid } from 'mauerwerk'
 
 function normalizeFields(fields) {
   const { Name, Tagline, Picture, Subcat } = fields
@@ -22,11 +24,9 @@ const FeedStyle = styled.ul`
   ${tw`m-0 p-0 flex flex-col`};
 `
 
-const Item = styled.li`
-  ${tw`block py-2`};
-  ${(props: any) => (props.size === 'large' ? tw`` : tw``)};
-  height: ${(props: any) =>
-    props.size === 'large' ? (props.height ? props.height : '400px') : 'auto'};
+const MobileOnlyCell = styled.li`
+  ${tw`block p-4`};
+  height: 30rem;
 `
 
 type FeedProperties = {
@@ -38,6 +38,57 @@ type FeedProperties = {
 
 type ItemProperties = {
   size: 'small' | 'large',
+}
+
+const Cell = styled.div`
+  ${tw`w-full h-full p-0`};
+`
+
+const Padding = styled.div`
+  ${tw`w-full h-full p-4`};
+`
+
+const DesktopFeed = ({ baseHeight, data, numLarge, columns }) => {
+  const withSizes = data.map((record, index) => {
+    const size =
+      numLarge >= 0
+        ? index < numLarge
+          ? 'large'
+          : 'small'
+        : numLarge < 0
+        ? 'large'
+        : 'small'
+
+    const height =
+      size === 'small' ? 128 : index > 0 ? baseHeight : baseHeight * 1.337
+    return { recommendation: normalizeFields(record.fields), size, height }
+  })
+
+  return (
+    <Grid
+      // className="grid"
+      // Arbitrary data, should contain keys, possibly heights, etc.
+      data={withSizes}
+      // Key accessor, instructs grid on how to fet individual keys from the data set
+      keys={d => d.recommendation.name}
+      // Can be a fixed value or an individual data accessor
+      heights={d => d.height}
+      // Number of columns
+      columns={columns}
+    >
+      {(data, maximized, toggle) => (
+        <Cell>
+          <Padding>
+            <Recommendation
+              {...data.recommendation}
+              variant={data.size}
+              horizontal={maximized && data.size === 'small'}
+            />
+          </Padding>
+        </Cell>
+      )}
+    </Grid>
+  )
 }
 
 /**
@@ -52,29 +103,44 @@ const Feed = (props: FeedProperties) => {
   const { items = [], numLarge = 0, count = 0 } = props
   const filtered = count ? take(count, items) : items
 
+  const calculateBaseHeight = matches => {
+    if (matches.md) {
+      return 400
+    }
+    if (matches.lg) {
+      return 400
+    }
+    if (matches.xl) {
+      return 450
+    }
+  }
+
   return (
-    <FeedStyle>
-      {filtered && filtered.length
-        ? filtered.map((record, index) => {
-            const size =
-              numLarge >= 0
-                ? index < numLarge
-                  ? 'large'
-                  : 'small'
-                : numLarge < 0
-                ? 'large'
-                : 'small'
-            return (
-              <Item size={size}>
-                <Recommendation
-                  variant={size}
-                  {...normalizeFields(record.fields)}
-                />
-              </Item>
-            )
-          })
-        : 'No items to show'}
-    </FeedStyle>
+    <Responsive>
+      {matches => (
+        <>
+          {(matches.xs || matches.sm) &&
+            filtered.map(record => {
+              return (
+                <MobileOnlyCell>
+                  <Recommendation
+                    variant="large"
+                    {...normalizeFields(record.fields)}
+                  />
+                </MobileOnlyCell>
+              )
+            })}
+          {(matches.md || matches.lg || matches.xl) && (
+            <DesktopFeed
+              baseHeight={calculateBaseHeight(matches)}
+              numLarge={numLarge}
+              data={filtered}
+              columns={2}
+            />
+          )}
+        </>
+      )}
+    </Responsive>
   )
 }
 

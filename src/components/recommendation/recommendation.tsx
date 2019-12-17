@@ -45,7 +45,7 @@ export function Recommendation(props: RecommendationProps) {
     variant = 'small',
   } = props
 
-  const sizeValue = variant === 'small' ? '10rem' : '100%'
+  const sizeValue = variant === 'small' ? '7rem' : '100%'
 
   return (
     <Card

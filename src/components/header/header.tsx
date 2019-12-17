@@ -10,9 +10,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 export const Container = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  ${tw`flex w-100 flex-row items-center justify-center h-64 text-white bg-gray-900`}
 
   a {
     text-decoration: none;
@@ -32,12 +30,13 @@ const LogoContainer = styled.div`
   a,
   a:hover,
   a:active {
-    ${tw`text-black`}
+    ${tw`text-white`}
   }
 `
 
 const SubtitleWrapper = styled.div`
-  ${tw`text-lg text-gray-600 px-2 w-full h-12 overflow-hidden inline-block font-body font-thin`};
+  ${tw`text-lg text-gray-600 mx-2 mt-2 h-12 overflow-hidden inline-block font-body font-thin`};
+  width: 200px;
 `
 
 const LogoAndSubtitle = ({ subtitleOptions }) => (
