@@ -22,11 +22,11 @@ function normalizeFields(fields) {
 }
 
 const Cell = styled.div`
-  ${tw`w-full h-full`};
+  ${tw`w-full h-full p-0`};
 `
 
-const Minimized = styled.div`
-  ${tw`w-full h-full`};
+const Padding = styled.div`
+  ${tw`w-full h-full p-4`};
 `
 
 export const Masonry = ({}) => {
@@ -46,17 +46,20 @@ export const Masonry = ({}) => {
       // Can be a fixed value or an individual data accessor
       heights={d => d.height}
       // Number of columns
-      columns={3}
+      columns={2}
     >
       {(data, maximized, toggle) => (
-        <Cell style={{ backgroundImage: data.css }} onClick={toggle}>
-          <Recommendation
-            name={data.name}
-            tagline={data.description}
-            category={data.name}
-            picture="https://source.unsplash.com/random/1024x1024"
-            variant="large"
-          ></Recommendation>
+        <Cell onClick={toggle}>
+          <Padding>
+            <Recommendation
+              name={data.name}
+              tagline={data.description}
+              category={data.name}
+              picture="https://source.unsplash.com/random/1024x1024"
+              variant={data.size}
+              horizontal={data.size === 'small'}
+            ></Recommendation>
+          </Padding>
         </Cell>
       )}
     </Grid>

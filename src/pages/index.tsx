@@ -5,6 +5,7 @@ import Feed from '../components/feed/feed'
 import { useAirTable } from '../utils/useAirtable'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
+import { Masonry } from '../components/masonry/masonry'
 
 const BASE_URL =
   'https://api.airtable.com/v0/appzWIcmWWhnfUEtf/Prototype?api_key=keyD9WDUfMMgSQkg0'
@@ -30,14 +31,12 @@ const RecentlyAdded = () => {
   )
 }
 
-
-
-const Subcat = ({ category = 'all', ...rest }) => {
+const Subcat = ({ category = 'all', name = category, ...rest }) => {
   const items = useAirTable(ALL_URL)
 
   return (
     <Section>
-      <CategoryHeader>Productivity</CategoryHeader>
+      <CategoryHeader>{name}</CategoryHeader>
       <Feed
         {...rest}
         items={items.filter(({ fields }) => fields['Subcat'] === category)}
@@ -51,6 +50,7 @@ const Index = ({ data }) => {
     <Layout>
       <RecentlyAdded />
       <Subcat category="Productivity" />
+      <Subcat category="Web Development" />
     </Layout>
   )
 }
