@@ -7,7 +7,7 @@ import { Responsive } from '../media/responsive'
 import { Grid } from 'mauerwerk'
 
 function normalizeFields(fields) {
-  const { Name, Tagline, Picture, Subcat } = fields
+  const { Name, Tagline, Picture, Subcat, Color, ...rest } = fields
 
   const result = {
     name: Name,
@@ -15,6 +15,8 @@ function normalizeFields(fields) {
     category: Subcat,
     picture:
       Picture && Picture[0] ? Picture[0]['thumbnails']['large']['url'] : '',
+    color: Color,
+    ...rest,
   }
 
   return result

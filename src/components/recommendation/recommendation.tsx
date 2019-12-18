@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { getRandomBackgroundColor } from '../../utils/random'
+import { generateColor } from '../../utils/colors'
 import { Card } from '../card/card'
 import { Link } from 'gatsby'
 import slug from '../../utils/slug'
@@ -23,6 +24,7 @@ const Image = styled(Link)`
     cursor-pointer w-full h-full bg-cover bg-center m-0 p-0 text-4xl flex justify-center items-center text-center text-white text-bold
   `}
   background-image: url(${props => props.src});
+  ${() => generateColor()};
 `
 
 const Category = styled.span`
@@ -75,7 +77,11 @@ export function Recommendation(props: RecommendationProps) {
         )
       }
       image={
-        <Image to={`/${slug(category)}/${slug(name)}`} src={picture}>
+        <Image
+          className={generateColor('bg', color, 400)}
+          to={`/${slug(category)}/${slug(name)}`}
+          src={picture}
+        >
           {picture && picture.length ? '' : name.charAt(0)}
         </Image>
       }
