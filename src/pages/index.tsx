@@ -8,6 +8,7 @@ import { Masonry } from '../components/masonry/masonry'
 import { getRandomBackgroundColor } from '../utils/random'
 import { UI_COLORS, getBackgroundColor } from '../utils/colors'
 import { Link } from 'gatsby'
+import * as slug from 'slug'
 
 const BASE_URL =
   'https://api.airtable.com/v0/appzWIcmWWhnfUEtf/Prototype?api_key=keyD9WDUfMMgSQkg0'
@@ -70,11 +71,13 @@ const Subcat = ({
   ...rest
 }) => {
   const items = useAirTable(ALL_URL)
-
+  const categoryUrl = `/${slug(category)}`
   return (
     <SectionWithBackgroundColor color={color}>
       <Container>
-        <Header>{name}</Header>
+        <Header>
+          <Link to={categoryUrl}>{name}</Link>
+        </Header>
         <Feed
           {...rest}
           includeCategory={false}
@@ -83,7 +86,7 @@ const Subcat = ({
           items={items.filter(({ fields }) => fields['Subcat'] === category)}
         />
         <More>
-          <MoreLink to={`/category/${category.toLowerCase()}`}>
+          <MoreLink to={categoryUrl}>
             more {category.toLowerCase()} recommendations?
           </MoreLink>
         </More>

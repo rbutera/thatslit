@@ -4,7 +4,7 @@ import tw from 'tailwind.macro'
 import { getRandomBackgroundColor } from '../../utils/random'
 import { Card } from '../card/card'
 import { Link } from 'gatsby'
-import * as slug from 'slug'
+import slug from '../../utils/slug'
 
 const Label = styled.caption`
   ${tw`m-0 p-0 flex flex-col text-left`}
@@ -15,10 +15,10 @@ const Name = styled.h2`
 `
 
 const Tagline = styled.p`
-  ${tw`m-0 p-0 text-base cursor-pointer`};
+  ${tw`m-0 p-0 text-base`};
 `
 
-const Image = styled.figure`
+const Image = styled(Link)`
   ${tw`
     cursor-pointer w-full h-full bg-cover bg-center m-0 p-0 text-4xl flex justify-center items-center text-center text-white text-bold
   `}
@@ -30,6 +30,10 @@ const Category = styled.span`
   ${(props: any) => (props.variant === 'small' ? tw`text-xs` : tw`text-sm`)};
 `
 
+const LinkToDetail = ({ category = 'random', name = '404', children }) => {
+  return <Link to={`/${slug(category)}/${slug(name)}`}>{children}</Link>
+}
+
 export type RecommendationProps = {
   name?: string,
   tagline?: string,
@@ -39,6 +43,7 @@ export type RecommendationProps = {
   variant?: 'small' | 'medium' | 'large',
   includeCategory?: boolean,
   size?: number,
+  id: string,
 }
 
 export function Recommendation(props: RecommendationProps) {
@@ -50,6 +55,7 @@ export function Recommendation(props: RecommendationProps) {
     includeCategory = true,
     variant = 'small',
     size,
+    id = '404',
   } = props
 
   const sizeValue = size ? `${size}px` : variant === 'small' ? '7rem' : '100%'
@@ -67,13 +73,15 @@ export function Recommendation(props: RecommendationProps) {
         )
       }
       image={
-        <Image src={picture}>
+        <Image to={`/${slug(category)}/${slug(name)}`} src={picture}>
           {picture && picture.length ? '' : name.charAt(0)}
         </Image>
       }
     >
       <Label>
-        <Name>{name}</Name>
+        <LinkToDetail category={category} name={name}>
+          <Name>{name}</Name>
+        </LinkToDetail>
         <Tagline>{tagline}</Tagline>
       </Label>
     </Card>
