@@ -44,6 +44,7 @@ export type RecommendationProps = {
   includeCategory?: boolean,
   size?: number,
   id: string,
+  color: UI_COLOR,
 }
 
 export function Recommendation(props: RecommendationProps) {
@@ -55,6 +56,7 @@ export function Recommendation(props: RecommendationProps) {
     includeCategory = true,
     variant = 'small',
     size,
+    color = 'gray',
     id = '404',
   } = props
 
