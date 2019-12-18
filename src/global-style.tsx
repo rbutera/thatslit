@@ -6,12 +6,7 @@ import './tailwind.css'
 
 export default createGlobalStyle`
   /* apply a natural box layout model to all elements, but allowing components to change */
-  html {
-    box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
+  
 
   body {
     ${tw`m-0 p-0 font-sans bg-gray-100 text-gray-900`};
