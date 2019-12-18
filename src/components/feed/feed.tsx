@@ -48,7 +48,13 @@ const Padding = styled.div`
   ${tw`w-full h-full p-4`};
 `
 
-const DesktopFeed = ({ baseHeight, data, numLarge, columns }) => {
+const DesktopFeed = ({
+  baseHeight,
+  data,
+  numLarge,
+  columns,
+  includeCategory,
+}) => {
   const withSizes = data.map((record, index) => {
     const size =
       numLarge >= 0
@@ -60,7 +66,7 @@ const DesktopFeed = ({ baseHeight, data, numLarge, columns }) => {
         : 'small'
 
     const height =
-      size === 'small' ? 128 : index > 0 ? baseHeight : baseHeight * 1.337
+      size === 'small' ? 200 : index > 0 ? baseHeight : baseHeight * 1.337
     return { recommendation: normalizeFields(record.fields), size, height }
   })
 
@@ -82,7 +88,9 @@ const DesktopFeed = ({ baseHeight, data, numLarge, columns }) => {
             <Recommendation
               {...data.recommendation}
               variant={data.size}
+              size={data.height}
               horizontal={maximized && data.size === 'small'}
+              includeCategory={includeCategory}
             />
           </Padding>
         </Cell>
@@ -97,10 +105,10 @@ const DesktopFeed = ({ baseHeight, data, numLarge, columns }) => {
  * @param items an array of the recommendation data
  * @param numLarge if 0 then all small, else this is the number of large recommendations to render (the rest are rendered as medium/small). if -1 then all large
  * @param count if 0 then show all, otherwise limit the number of recommendations to render by this amount
- * @param includeCategory if 0 then show all, otherwise limit the number of recommendations to render by this amount
+ * @param includeCategory if true then include categories
  */
 const Feed = (props: FeedProperties) => {
-  const { items = [], numLarge = 0, count = 0 } = props
+  const { items = [], numLarge = 0, count = 0, includeCategory = true } = props
   const filtered = count ? take(count, items) : items
 
   const calculateBaseHeight = matches => {
@@ -126,6 +134,7 @@ const Feed = (props: FeedProperties) => {
                   <Recommendation
                     variant="large"
                     {...normalizeFields(record.fields)}
+                    includeCategory={includeCategory}
                   />
                 </MobileOnlyCell>
               )
@@ -136,6 +145,7 @@ const Feed = (props: FeedProperties) => {
               numLarge={numLarge}
               data={filtered}
               columns={2}
+              includeCategory={includeCategory}
             />
           )}
         </>

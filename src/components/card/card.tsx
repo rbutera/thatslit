@@ -15,16 +15,16 @@ const Body = styled.figure`
 `
 
 const Label = styled.div`
-  ${tw`p-6 m-0 flex flex-col w-full`};
+  ${tw`p-6 m-0 flex flex-col justify-center w-full`};
   width: ${props => (props.horizontal ? '1fr' : 'auto')};
 `
 
 const Content = styled.div`
-  ${tw`flex-grow`};
+  ${tw`flex-grow flex flex-col justify-center w-full h-full`};
 `
 
 const Footer = styled.div`
-  ${tw`flex-none text-xs`};
+  ${tw`flex-auto text-xs`};
 `
 
 export type Image = {

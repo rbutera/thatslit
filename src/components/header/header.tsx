@@ -11,7 +11,7 @@ import tw from 'tailwind.macro'
 
 export const Container = styled.header`
   ${tw`flex w-100 flex-row items-center justify-center text-white bg-gray-900`}
-  height: 60vh;
+  height: 45vh;
 
   a {
     text-decoration: none;

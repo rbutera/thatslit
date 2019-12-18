@@ -13,7 +13,7 @@ const Name = styled.h2`
 `
 
 const Tagline = styled.p`
-  ${tw`m-0 mb-8 p-0 text-base`};
+  ${tw`m-0 p-0 text-base`};
 `
 
 const Image = styled.figure`
@@ -25,7 +25,7 @@ const Image = styled.figure`
 `
 
 const Category = styled.span`
-  ${tw` uppercase tracking-wide text-sm text-gray-600`}
+  ${tw`block pt-4 uppercase tracking-wide text-sm text-gray-600`}
 `
 
 export type RecommendationProps = {
@@ -36,6 +36,7 @@ export type RecommendationProps = {
   picture?: string,
   variant?: 'small' | 'medium' | 'large',
   includeCategory?: boolean,
+  size?: number,
 }
 
 export function Recommendation(props: RecommendationProps) {
@@ -46,16 +47,17 @@ export function Recommendation(props: RecommendationProps) {
     tagline = 'Not much is known about this.',
     includeCategory = true,
     variant = 'small',
+    size,
   } = props
 
-  const sizeValue = variant === 'small' ? '7rem' : '100%'
+  const sizeValue = size ? `${size}px` : variant === 'small' ? '7rem' : '100%'
 
   return (
     <Card
       size={sizeValue}
       horizontal={variant === 'small'}
       small={variant === 'small'}
-      footer={<Category>{includeCategory ? category : ''}</Category>}
+      footer={includeCategory && <Category>{category}</Category>}
       image={
         <Image src={picture}>
           {picture && picture.length ? '' : name.charAt(0)}
