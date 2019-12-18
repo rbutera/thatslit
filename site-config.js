@@ -1,16 +1,16 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
-  siteTitle: `Gatsby Universal`,
-  siteTitleShort: `GatsbyU`,
-  siteDescription: `An opinionated starter for Gatsby.`,
-  siteUrl: `https://gu.fabianschultz.com`,
+  siteTitle: `That's Lit - the best collection of useful and inspirational sources around the internet`,
+  siteTitleShort: `ThatsLit`,
+  siteDescription: `the best collection of useful and inspirational sources from around the internet`,
+  siteUrl: `https://thatsl.it`,
   themeColor: `#000`,
   backgroundColor: `#fff`,
   pathPrefix: null,
   logo: path.resolve(__dirname, 'src/images/icon.png'),
   social: {
-    twitter: `gatsbyjs`,
+    twitter: `thatslit`,
     fbAppId: `966242223397117`,
   },
-};
+}

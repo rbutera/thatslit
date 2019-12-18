@@ -3303,7 +3303,7 @@ auto-bind@^3.0.0:
   resolved "https://registry.yarnpkg.com/auto-bind/-/auto-bind-3.0.0.tgz#67773e64899b228f6d2a841709e7e086cfed31a3"
   integrity sha512-v0A231a/lfOo6kxQtmEkdBfTApvC21aJYukA8pkKnoTvVqh3Wmm7/Rwy4GBCHTTHVoLVA5qsBDDvf1XY1nIV2g==
 
-autoprefixer@^9.4.5, autoprefixer@^9.4.9, autoprefixer@^9.6.1, autoprefixer@^9.7.2:
+autoprefixer@^9.4.5, autoprefixer@^9.4.9, autoprefixer@^9.6.1, autoprefixer@^9.7.2, autoprefixer@^9.7.3:
   version "9.7.3"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.7.3.tgz#fd42ed03f53de9beb4ca0d61fb4f7268a9bb50b4"
   integrity sha512-8T5Y1C5Iyj6PgkPSFd0ODvK9DIleuPKUPYniNxybS47g2k2wFgLZ46lGQHlBuGKIAEV8fbCDfKCCRS1tvOgc3Q==
@@ -8384,12 +8384,12 @@ gatsby-plugin-page-creator@^2.1.33:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
-gatsby-plugin-postcss@^2.1.16:
-  version "2.1.16"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-postcss/-/gatsby-plugin-postcss-2.1.16.tgz#ab7fef94d74507ac050603d4b190b8e4bcbc9250"
-  integrity sha512-3zHVtl/BWK/imHyNHMhwJeQ4dMwmR6V7J2AnUzThLQUjGmJM7wAutlvArwTotCEHZuWmARil5LQwAdtAS5Bx8Q==
+gatsby-plugin-postcss@^2.1.18:
+  version "2.1.18"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-postcss/-/gatsby-plugin-postcss-2.1.18.tgz#bdb6bb54c91ea0d6c4c4ebf98d38e335858654c4"
+  integrity sha512-pQEC8vQ/wYbEoyhC5KOZHghGSO+jYUabTNS9zAbdu+PnAMZM3N5nzMOJ41yk+eFrSeB8ClGNPtKKwzE6AFja7g==
   dependencies:
-    "@babel/runtime" "^7.7.4"
+    "@babel/runtime" "^7.7.6"
     postcss-loader "^3.0.0"
 
 gatsby-plugin-react-helmet@^3.0.12:

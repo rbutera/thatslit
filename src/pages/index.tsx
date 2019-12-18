@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from '../components/layout'
-import CategoryHeader from '../components/feed/category-header'
 import Feed from '../components/feed/feed'
 import { useAirTable } from '../utils/useAirtable'
 import styled from 'styled-components'
@@ -28,7 +27,7 @@ const Container = styled.div`
 `
 
 const Header = styled.h1`
-  ${tw`inline-block font-sans tracking-tight px-4`};
+  ${tw`m-0 p-0 mx-4 pt-8 pb-4`};
 `
 
 const RecentlyAdded = () => {
@@ -37,7 +36,9 @@ const RecentlyAdded = () => {
   return (
     <Section>
       <Container>
-        <Header>Recently Added</Header>
+        <Header>
+          <div className="bg-red-400">Recently Added</div>
+        </Header>
         <Feed numLarge="-1" items={items} />
       </Container>
     </Section>

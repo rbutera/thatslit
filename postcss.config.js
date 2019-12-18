@@ -9,5 +9,7 @@ module.exports = {
     'postcss-import': {},
     'postcss-nested': {},
     'postcss-easing-gradients': {},
+    tailwindcss: {},
+    autoprefixer: {},
   },
-};
+}

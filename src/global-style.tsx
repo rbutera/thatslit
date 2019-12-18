@@ -1,9 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 import { accent } from './constants/theme'
 import './fonts.css'
-import './tailwind.css'
-
 import tw from 'tailwind.macro'
+import './tailwind.css'
 
 export default createGlobalStyle`
   /* apply a natural box layout model to all elements, but allowing components to change */

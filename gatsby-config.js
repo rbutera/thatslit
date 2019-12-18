@@ -1,10 +1,11 @@
-const siteConfig = require('./site-config');
+const siteConfig = require('./site-config')
 
 module.exports = {
   siteMetadata: {
     ...siteConfig,
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
@@ -31,4 +32,4 @@ module.exports = {
       },
     },
   ],
-};
+}

@@ -6,7 +6,11 @@ const Text = styled.h1`
 `
 
 const CategoryHeader = ({ children, as = 'h1' }) => {
-  return <Text as={as}>{children}</Text>
+  return (
+    <Text as={as}>
+      <div className="bg-green-400">{children}</div>
+    </Text>
+  )
 }
 
 export default CategoryHeader
