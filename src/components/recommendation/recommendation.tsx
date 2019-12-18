@@ -4,13 +4,16 @@ import tw from 'tailwind.macro'
 import { getRandomBackgroundColor } from '../../utils/random'
 import { Card } from '../card/card'
 
+const Label = styled.caption`
+  ${tw`m-0 p-0 flex flex-col text-left`}
+`
+
 const Name = styled.h2`
   ${tw`font-bold m-0 p-0 text-base`};
 `
 
 const Tagline = styled.p`
   ${tw`m-0 mb-8 p-0 text-base`};
-  max-width: 30rem;
 `
 
 const Image = styled.figure`
@@ -22,7 +25,7 @@ const Image = styled.figure`
 `
 
 const Category = styled.span`
-  ${tw`mt-4 uppercase tracking-wide text-sm text-gray-600`}
+  ${tw` uppercase tracking-wide text-sm text-gray-600`}
 `
 
 export type RecommendationProps = {
@@ -59,8 +62,10 @@ export function Recommendation(props: RecommendationProps) {
         </Image>
       }
     >
-      <Name>{name}</Name>
-      <Tagline>{tagline}</Tagline>
+      <Label>
+        <Name>{name}</Name>
+        <Tagline>{tagline}</Tagline>
+      </Label>
     </Card>
   )
 }

@@ -20,14 +20,14 @@ const ALL_URL =
   '&maxRecords=9999&sort%5B0%5D%5Bfield%5D=Date&sort%5B0%5D%5Bdirection%5D=desc'
 
 const Section = styled.section`
-  ${tw`w-full flex flex-row justify-center py-8`}
+  ${tw`w-full flex flex-row justify-center py-24`}
 `
 const Container = styled.div`
   ${tw`w-full sm:w-4/5 lg:w-3/4 xl:w-2/3`}
 `
 
 const Header = styled.h1`
-  ${tw`m-0 p-0 mx-4 pt-8 pb-4`};
+  ${tw`text-4xl font-bold m-0 p-0 mx-4 pt-8 pb-4 tracking-tight`};
 `
 
 const RecentlyAdded = () => {
@@ -36,9 +36,7 @@ const RecentlyAdded = () => {
   return (
     <Section>
       <Container>
-        <Header>
-          <div className="bg-red-400">Recently Added</div>
-        </Header>
+        <Header>Recently Added</Header>
         <Feed numLarge="-1" items={items} />
       </Container>
     </Section>

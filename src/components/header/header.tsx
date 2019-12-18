@@ -10,7 +10,8 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 export const Container = styled.header`
-  ${tw`flex w-100 flex-row items-center justify-center h-64 text-white bg-gray-900`}
+  ${tw`flex w-100 flex-row items-center justify-center text-white bg-gray-900`}
+  height: 60vh;
 
   a {
     text-decoration: none;

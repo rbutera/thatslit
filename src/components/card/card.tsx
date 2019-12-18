@@ -15,7 +15,7 @@ const Body = styled.figure`
 `
 
 const Label = styled.div`
-  ${tw`flex-grow flex-col flex p-6 justify-between`};
+  ${tw`p-6 m-0 flex flex-col w-full`};
   width: ${props => (props.horizontal ? '1fr' : 'auto')};
 `
 
@@ -33,9 +33,9 @@ export type Image = {
 }
 
 export type CardProps = {
-  image?: Component,
-  footer?: Component,
-  children: Component,
+  image?: any,
+  footer?: any,
+  children: any,
   vertical?: boolean,
   horizontal?: boolean,
   size?: string,
