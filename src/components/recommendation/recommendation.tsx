@@ -3,29 +3,31 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { getRandomBackgroundColor } from '../../utils/random'
 import { Card } from '../card/card'
+import { Link } from 'gatsby'
+import * as slug from 'slug'
 
 const Label = styled.caption`
   ${tw`m-0 p-0 flex flex-col text-left`}
 `
 
 const Name = styled.h2`
-  ${tw`font-bold m-0 p-0 text-base`};
+  ${tw`font-bold m-0 p-0 text-base cursor-pointer`};
 `
 
 const Tagline = styled.p`
-  ${tw`m-0 p-0 text-base`};
+  ${tw`m-0 p-0 text-base cursor-pointer`};
 `
 
 const Image = styled.figure`
   ${tw`
-    w-full h-full bg-cover bg-center m-0 p-0 text-4xl flex justify-center items-center text-center text-white text-bold
+    cursor-pointer w-full h-full bg-cover bg-center m-0 p-0 text-4xl flex justify-center items-center text-center text-white text-bold
   `}
   background-image: url(${props => props.src});
-  ${() => getRandomBackgroundColor()}
 `
 
 const Category = styled.span`
-  ${tw`block pt-4 uppercase tracking-wide text-sm text-gray-600`}
+  ${tw`cursor-pointer block mt-8 uppercase tracking-wide text-gray-600`}
+  ${(props: any) => (props.variant === 'small' ? tw`text-xs` : tw`text-sm`)};
 `
 
 export type RecommendationProps = {
@@ -43,7 +45,7 @@ export function Recommendation(props: RecommendationProps) {
   const {
     picture,
     name = 'Untitled',
-    category = 'Uncategorised',
+    category = 'Random',
     tagline = 'Not much is known about this.',
     includeCategory = true,
     variant = 'small',
@@ -57,7 +59,13 @@ export function Recommendation(props: RecommendationProps) {
       size={sizeValue}
       horizontal={variant === 'small'}
       small={variant === 'small'}
-      footer={includeCategory && <Category>{category}</Category>}
+      footer={
+        includeCategory && (
+          <Category variant={variant}>
+            <Link to={`/${slug(category)}`}>{category}</Link>
+          </Category>
+        )
+      }
       image={
         <Image src={picture}>
           {picture && picture.length ? '' : name.charAt(0)}
