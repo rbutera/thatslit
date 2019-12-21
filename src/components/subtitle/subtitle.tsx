@@ -29,7 +29,8 @@ function shuffle(input = []) {
 }
 
 const AnimatedSegmentStyle = styled.span`
-  ${tw``};
+  ${tw`truncate`};
+  max-width: 2rem;
 `
 
 const AnimatedSegment = ({ children }) => {

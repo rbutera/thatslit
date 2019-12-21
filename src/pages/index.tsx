@@ -24,12 +24,20 @@ const ALL_URL =
 const Section = styled.section`
   ${tw`w-full flex flex-row justify-center py-4 sm:py-8 md:pt-16 md:pb-24`}
 `
-const Container = styled.div`
-  ${tw`w-full sm:px-4 md:px-8 lg:px-16 xl:px-24`}
+const ContainerStyle = styled.div`
+  ${tw`w-full sm:px-4 md:px-8 lg:px-16 xl:w-4/5`}
 `
 
+const Container = ({ children, ...rest }) => {
+  return (
+    <ContainerStyle className="container" {...rest}>
+      {children}
+    </ContainerStyle>
+  )
+}
+
 const Header = styled.h1`
-  ${tw`text-xl sm:text-2xl md:text-4xl font-bold m-0 p-0 mx-4 my-4 md:my-8 tracking-tight md:text-center`};
+  ${tw`text-xl sm:text-2xl md:text-4xl font-bold m-0 p-0 mx-4 my-4 md:my-8 tracking-tight md:mx-12`};
 `
 
 const More = styled.div`

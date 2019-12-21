@@ -47,7 +47,7 @@ const Cell = styled.div`
 `
 
 const Padding = styled.div`
-  ${tw`w-full h-full p-4`};
+  ${tw`w-full h-full p-4 xl:p-8`};
 `
 
 const DesktopFeed = ({

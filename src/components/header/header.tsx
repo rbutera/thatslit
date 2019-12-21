@@ -10,8 +10,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 export const Container = styled.header`
-  ${tw`flex w-100 flex-row items-center justify-center text-white bg-gray-900`}
-  height: 45vh;
+  ${tw`flex w-100 flex-row items-end justify-center h-48`}
 
   a {
     text-decoration: none;
@@ -31,7 +30,7 @@ const LogoContainer = styled.div`
   a,
   a:hover,
   a:active {
-    ${tw`text-white`}
+    ${tw`text-gray-900`}
   }
 `
 
