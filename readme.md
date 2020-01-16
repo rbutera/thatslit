@@ -1,7 +1,7 @@
 # That's Lit
 > A collection of useful and inspiring recommendations
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/J5YctFo"><a href="//imgur.com/a/J5YctFo"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+![Screenshot](./thats-lit-prototype.gif)
 
 
 Website in development.
